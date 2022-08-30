@@ -1,0 +1,157 @@
+body {
+    min-height: 100vh;
+    min-width: 100%;
+    margin: 0 auto;
+}
+
+.pesquisar-container {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    overflow: hidden;
+    border: 1px solid #1A1E37;
+}
+
+.pesquisar-style {
+    float: left;
+    color: black;
+    text-align: left;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.header-container {
+    background-image: url(/Imagens/prediocomcor.png);
+    min-height: 380px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    margin-top: 0%;
+}
+
+.tamanho-img-carrossel {
+    height: 300px;
+    width: 100%;
+}
+
+.hotbar-container {
+    background: #1A1E37;
+    position: relative;
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+}
+
+.hotbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hotbar-item {
+    display: inline;
+}
+
+.hotbar-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: solid;
+    font-weight: bold;
+    float: right
+}
+
+.hotbar-logo a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    float: left
+}
+
+.footer-container {
+    background: #1A1E37;
+    color: #ffffff;
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+}
+
+.footer-box {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.footer-container-logo {
+    text-decoration: none;
+    float: left;
+    width: 65%;
+    height: 100%;
+}
+
+.footer-logo {
+    height: 80%;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.footer-informativo {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 35%;
+}
+
+.calendario-container {
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.calendario-box {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+table,
+th,
+td {
+    border: 1px solid;
+    text-align: center;
+}
+
+.dia-programado {
+    color: red;
+    text-decoration: none;
+}
+
+.ver-mais-calendario {
+    margin-left: 45%;
+    margin-top: 5%;
+    width: 10%;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+}
