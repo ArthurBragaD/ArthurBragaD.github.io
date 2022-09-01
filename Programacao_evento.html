@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="Hotbar.css">
-    <link rel="stylesheet" href="Noticias.css">
+    <link rel="stylesheet" href="Programacao_evento.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
@@ -25,7 +25,7 @@
     <div class="header-container">
         <div class="pesquisar-container">
             <input class="pesquisar-style" type="text" placeholder="Pesquisar...">
-            <button type="button" class="bi bi-search"></button>
+            <button type="button" class="bi bi-search" onclick="location.href='/Pesquisa.html'"></button>
         </div>
 
     </div>
@@ -33,93 +33,216 @@
     <div id="hotbar-menu-wrap " class="hotbar-container ">
         <ul class="hotbar-menu ">
             <li class="hotbar-logo ">
-                <a href=" "><i class="bi-house-door-fill">| Ínicio</i></a>
+                <a href="/Index.html "><i class="bi-house-door-fill ">| Ínicio</i></a>
             </li>
             <li class="hotbar-item ">
-                <a href=" ">Informações</a>
+                <a href="/Informacoes.html ">Informações</a>
             </li>
             <li class="hotbar-item ">
-                <a href=" ">Instituiçoes</a>
+                <a href="/Instituicoes.html ">Instituiçoes</a>
             </li>
             <li class="hotbar-item ">
                 <a href=" ">Editais</a>
             </li>
             <li class="hotbar-item ">
-                <a href=" ">Agenda</a>
-            </li>
-            <li class="hotbar-item ">
-                <a href=" ">Eventos</a>
+                <a href="/Agenda.html ">Agenda</a>
             </li>
             <li class="hotbar-item ">
                 <a href=" ">Pós-Cultura</a>
             </li>
             <li class="hotbar-item ">
-                <a href=" ">Programações</a>
+                <a href="/Programacao_evento.html ">Programações e Eventos</a>
             </li>
             <li class="hotbar-item ">
-                <a href=" ">Noticias</a>
+                <a href="/Noticias.html ">Noticias</a>
             </li>
             <li class="hotbar-item ">
                 <a href=" ">Mapa Cultural</a>
             </li>
         </ul>
     </div>
-    <div class="carousel-container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <div class="carousel-container ">
+        <div id="carouselExampleIndicators " class="carousel slide " data-ride="carousel ">
+            <ol class="carousel-indicators ">
+                <li data-target="#carouselExampleIndicators " data-slide-to="0 " class="active "></li>
+                <li data-target="#carouselExampleIndicators " data-slide-to="1 "></li>
             </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class=".d-block .img-fluid tamanho-img-carrossel" src="/Imagens/imagem2.jpg" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-inner ">
+                <div class="carousel-item active ">
+                    <img class=".d-block .img-fluid tamanho-img-carrossel " src="/Imagens/imagem2.jpg " alt="First slide ">
+                    <div class="carousel-caption d-none d-md-block ">
                         <h5>...</h5>
                         <p>...</p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class=".d-block .img-fluid tamanho-img-carrossel" src="/Imagens/imagem3.jpg" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-item ">
+                    <img class=".d-block .img-fluid tamanho-img-carrossel " src="/Imagens/imagem3.jpg " alt="Second slide ">
+                    <div class="carousel-caption d-none d-md-block ">
                         <h5>...</h5>
                         <p>...</p>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
+                <a class="carousel-control-prev " href="#carouselExampleIndicators " role="button " data-slide="prev ">
+                    <span class="carousel-control-prev-icon " aria-hidden="true "></span>
+                    <span class="sr-only ">Anterior</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Proximo</span>
+                <a class="carousel-control-next " href="#carouselExampleIndicators " role="button " data-slide="next ">
+                    <span class="carousel-control-next-icon " aria-hidden="true "></span>
+                    <span class="sr-only ">Proximo</span>
                 </a>
             </div>
         </div>
     </div>
-    <div class="titulo-container">
-        <h2 class="titulo-conteudo">Programação dos eventos</h2>
+    <div class="titulo-container ">
+        <h2 class="titulo-conteudo ">Programação dos eventos</h2>
     </div>
-    <div class="noticias-container">
-        <div class="noticias-data-container">
-            <h4></h4>
-            <article class="conteudo-lista__item clearfix">
+    <div class="noticias-container ">
+        <div class="noticias-data-container ">
+            <h4 class="programaçao-dia-titulo ">Domingo:</h4>
+            <article class="conteudo-lista__item clearfix ">
                 <header>
-                    <figure class="pull-left hidden-xs">
-                        <a href="" target="_self">
-                            <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
+                    <figure class="pull-left hidden-xs ">
+                        <a href=" " target="_self ">
+                            <img class="resultado-pesquisa-img " src="/Imagens/Design sem nome (1).png ">
                         </a>
                     </figure>
-                    <time class="conteudo-lista__item__datahora" datetime="">
+                    <time class="conteudo-lista__item__datahora " datetime=" ">
                             00/00/0000-00h00min
                         </time>
-                    <h2 class="conteudo-lista__item__titulo">
-                        <a href="" target="_self" title="Leia na íntegra.">Titulo da noticia</a>
+                    <h2 class="conteudo-lista__item__titulo ">
+                        <a href=" " target="_self " title="Leia na íntegra. ">Titulo da noticia</a>
                     </h2>
                 </header>
-                <p class="hidden-xs">
+                <p class="hidden-xs ">
                     Descrição: Teste
                 </p>
+            </article>
+            <article class="conteudo-lista__item clearfix ">
+                <header>
+                    <figure class="pull-left hidden-xs ">
+                        <a href=" " target="_self ">
+                            <img class="resultado-pesquisa-img " src="/Imagens/Design sem nome (1).png ">
+                        </a>
+                    </figure>
+                    <time class="conteudo-lista__item__datahora " datetime=" ">
+                            00/00/0000-00h00min
+                        </time>
+                    <h2 class="conteudo-lista__item__titulo ">
+                        <a href=" " target="_self " title="Leia na íntegra. ">Titulo da noticia</a>
+                    </h2>
+                </header>
+                <p class="hidden-xs ">
+                    Descrição: Teste
+                </p>
+            </article>
+        </div>
+        <div class="noticias-data-container ">
+            <h4 class="programaçao-dia-titulo ">Segunda:</h4>
+            <article class="conteudo-lista__item clearfix ">
+                <header>
+                    <figure class="pull-left hidden-xs ">
+                        <a href=" " target="_self ">
+                            <img class="resultado-pesquisa-img " src="/Imagens/Design sem nome (1).png ">
+                        </a>
+                    </figure>
+                    <time class="conteudo-lista__item__datahora " datetime=" ">
+                            00/00/0000-00h00min
+                        </time>
+                    <h2 class="conteudo-lista__item__titulo ">
+                        <a href=" " target="_self " title="Leia na íntegra. ">Titulo da noticia</a>
+                    </h2>
+                </header>
+                <p class="hidden-xs ">
+                    Descrição: Teste
+                </p>
+            </article>
+        </div>
+        <div class="noticias-data-container ">
+            <h4 class="programaçao-dia-titulo ">Terça:</h4>
+        </div>
+        <div class="noticias-data-container ">
+            <h4 class="programaçao-dia-titulo ">Quarta:</h4>
+            <article class="conteudo-lista__item clearfix ">
+                <header>
+                    <figure class="pull-left hidden-xs ">
+                        <a href=" " target="_self ">
+                            <img class="resultado-pesquisa-img " src="/Imagens/Design sem nome (1).png ">
+                        </a>
+                    </figure>
+                    <time class="conteudo-lista__item__datahora " datetime=" ">
+                            00/00/0000-00h00min
+                        </time>
+                    <h2 class="conteudo-lista__item__titulo ">
+                        <a href=" " target="_self " title="Leia na íntegra. ">Titulo da noticia</a>
+                    </h2>
+                </header>
+                <p class="hidden-xs ">
+                    Descrição: Teste
+                </p>
+            </article>
+        </div>
 
+        <div class="noticias-data-container ">
+            <h4 class="programaçao-dia-titulo ">Quinta:</h4>
+            <article class="conteudo-lista__item clearfix ">
+                <header>
+                    <figure class="pull-left hidden-xs ">
+                        <a href=" " target="_self ">
+                            <img class="resultado-pesquisa-img " src="/Imagens/Design sem nome (1).png ">
+                        </a>
+                    </figure>
+                    <time class="conteudo-lista__item__datahora " datetime=" ">
+                            00/00/0000-00h00min
+                        </time>
+                    <h2 class="conteudo-lista__item__titulo ">
+                        <a href=" " target="_self " title="Leia na íntegra. ">Titulo da noticia</a>
+                    </h2>
+                </header>
+                <p class="hidden-xs ">
+                    Descrição: Teste
+                </p>
+            </article>
+            <article class="conteudo-lista__item clearfix ">
+                <header>
+                    <figure class="pull-left hidden-xs ">
+                        <a href=" " target="_self ">
+                            <img class="resultado-pesquisa-img " src="/Imagens/Design sem nome (1).png ">
+                        </a>
+                    </figure>
+                    <time class="conteudo-lista__item__datahora " datetime=" ">
+                            00/00/0000-00h00min
+                        </time>
+                    <h2 class="conteudo-lista__item__titulo ">
+                        <a href=" " target="_self " title="Leia na íntegra. ">Titulo da noticia</a>
+                    </h2>
+                </header>
+                <p class="hidden-xs ">
+                    Descrição: Teste
+                </p>
+            </article>
+        </div>
+        <div class="noticias-data-container ">
+            <h4 class="programaçao-dia-titulo ">Sexta:</h4>
+        </div>
+        <div class="noticias-data-container ">
+            <h4 class="programaçao-dia-titulo ">Sabado:</h4>
+            <article class="conteudo-lista__item clearfix ">
+                <header>
+                    <figure class="pull-left hidden-xs ">
+                        <a href=" " target="_self ">
+                            <img class="resultado-pesquisa-img " src="/Imagens/Design sem nome (1).png ">
+                        </a>
+                    </figure>
+                    <time class="conteudo-lista__item__datahora " datetime=" ">
+                            00/00/0000-00h00min
+                        </time>
+                    <h2 class="conteudo-lista__item__titulo ">
+                        <a href=" " target="_self " title="Leia na íntegra. ">Titulo da noticia</a>
+                    </h2>
+                </header>
+                <p class="hidden-xs ">
+                    Descrição: Teste
+                </p>
             </article>
         </div>
     </div>
@@ -127,7 +250,7 @@
         <div class="footer-box ">
             <div class="footer-informativo "><b>SECRETARIA MUNICIPAL DE CULTURA, ESPORTE E LAZER</b><br> Rua General Viturino, 666<br>Rio Grande, RS<br>96200-310<br> Telefone: (53) 3233-8470<br>Horarios de Atendimento: segunda a sexta 9h às 18h<br> Dúvidas e informação contatar pelos
                 seguintes Emails:<br> cultura@riogrande.rs.gov.br e esporte@riogrande.rs.gov.br</div>
-            <div class="footer-container-logo"><img class="footer-logo" src="/Imagens/BRASÃO 3_2.png"></div>
+            <div class="footer-container-logo "><img class="footer-logo " src="/Imagens/BRASÃO 3_2.png "></div>
         </div>
     </div>
 

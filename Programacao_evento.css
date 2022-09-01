@@ -1,5 +1,8 @@
 .noticias-container {
     width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2.5%;
@@ -10,14 +13,11 @@
 .noticias-data-container {
     display: flex;
     flex-direction: column;
-    margin-top: 2.5%;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    width: 30%;
 }
 
 .conteudo-lista__item {
-    width: 45%;
+    width: 100%;
 }
 
 .resultado-pesquisa-img {
@@ -58,4 +58,9 @@
     margin-top: 5%;
     margin-bottom: 5%;
     width: 10%;
+}
+
+.programaçao-dia-titulo {
+    font-size: larger;
+    text-align: center;
 }
