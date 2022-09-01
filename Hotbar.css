@@ -4,7 +4,24 @@ body {
     margin: 0 auto;
 }
 
+.bi {
+    border: 1px solid #1A1E37;
+    width: 15%;
+}
+
+.titulo-container {
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 2.5%;
+}
+
+.titulo-conteudo {
+    text-align: center;
+}
+
 .pesquisar-container {
+    display: flex;
     position: absolute;
     right: 5%;
     bottom: 5%;
@@ -13,8 +30,8 @@ body {
 }
 
 .pesquisar-style {
+    width: 85%;
     float: left;
-    color: black;
     text-align: left;
     /* padding: 14px 16px; */
     text-decoration: none;
