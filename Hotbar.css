@@ -4,6 +4,11 @@ body {
     margin: 0 auto;
 }
 
+.btn {
+    background-color: #1A1E37;
+    border: none;
+}
+
 .bi {
     border: 1px solid #1A1E37;
     width: 15%;
