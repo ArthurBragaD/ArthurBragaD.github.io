@@ -6,7 +6,7 @@
     width: 10%;
 }
 
-.instituicoes-container {
+.informacoes-container {
     margin-top: 2.5%;
     display: block;
     width: 50%;
@@ -15,7 +15,7 @@
     margin-right: 25%;
 }
 
-.instituicoes-table {
+.informacoes-table {
     margin-bottom: 1.5rem;
     background-color: #fff;
     border: 1px solid black;
