@@ -3,11 +3,17 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
     border: 1px #000000;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
 }
 
 .noticias-data-container {

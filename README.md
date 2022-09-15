@@ -1,5 +1,6 @@
 # Site_Prefeitura_Estagio
-Desenvolvendo o CSS basico para as paginas
-- Busca de SVG de imagens
-- Hotbar de acesso 80%
-- Design dos Informativos no final da página 80%
+Link: ArthurBragaD.github.io/Index.html
+Progresso Atual:
+- Adaptado os tamanhos para as telas
+- Arrumando as caracteristicas do caroussel
+- Programando o banco de dados para adiçao das noticias e pesquisas 
