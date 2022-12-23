@@ -34,7 +34,7 @@
 
 a {
     text-decoration: none;
-    color: #333333;
+    color: black;
 }
 
 h4>a.collapsed:before {
@@ -60,4 +60,12 @@ h4>a:before {
     margin-left: 5%;
     margin-right: 5%;
     text-align: justify;
+}
+
+.button-ver-mais {
+    text-align: center;
+    width: 15%;
+    margin-left: 42.5%;
+    margin-right: 42.5%;
+    margin-top: 2.5%;
 }

@@ -1,0 +1,36 @@
+.instituicoes-container {
+    margin-top: 2.5%;
+    display: block;
+    width: 60%;
+    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.instituicoes-table {
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 0;
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+
+.equipamento-titulo {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.imagem-instituicao {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.artigo_texto {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: justify;
+}
