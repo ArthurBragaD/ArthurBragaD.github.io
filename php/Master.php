@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="/css/Hotbar.css">
+    <link rel="stylesheet" href="/css/Master.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
@@ -25,11 +26,92 @@
     <?php
     session_start();
     if (!isset($_SESSION["currentUserName"])) header('Location: Login.php');
-    echo $_SESSION["loggedIn"] . "<br>" . $_SESSION["startTime"] . "<br>" . $_SESSION["currentUserName"];
+    // echo $_SESSION["loggedIn"] . "<br>" . $_SESSION["startTime"] . "<br>" . $_SESSION["currentUserName"];
     ?>
+    <?php
+    if (isset($_POST["enviar"])) {
+    if (!empty($_POST['titulo']) and !empty($_POST['descricao'] and !empty($_POST['autor']) and !empty($_POST['sympla']))) {
+        echo "Noticia catalogada";
+            $titulo = $_POST["titulo"];
+            $descricao = $_POST["descricao"];
+            $autor = $_POST["autor"];
+            $sympla = $_POST["sympla"];
+            $imagem = $_POST["imagem"];
+            $db = new SQLite3('../db/userData.db');
+            $sql = "INSERT INTO Noticias VALUES ('$titulo','$descricao',CURRENT_DATE,'$autor ','$sympla ','$imagem');";
+            $stmt = $db->prepare($sql);
+            $stmt->execute();
+            // $db->execute([
+            //     ':$titulo' = $titulo,
+            //     ':$descricao'= $descricao,
+            //     ':$autor'= $autor,
+            //     ':$sympla'= $sympla,
+            //     ':$imagem'= $imagem,
+            // ]);
+            $db->close();
+        $titulo = "";
+        $descricao = "";
+        $autor = "";
+        $sympla = "";
 
-    <button type="submit" class="btn btn-primary button-submit"><a href="Logout.php">Logout</a></button>
-    <p>hello world</p>
+        // IMAGEM ARRUMAR DPS *ADICIONAR NO IF DE CHECAGEM DPS
+        // $formatosPermitidos = array("png", "jpeg", "jpg");
+        // $extensao = pathinfo($_FILES["imagem"]['name'], PATHINFO_EXTENSION);
+        // echo $extensao;
+        //     if(in_array($extensao, $formatosPermitidos)){
+        //     //
+        //     $mensagem = "Noticia Catalogada";
+        //     echo $mensagem;
+        // }else{
+        //             $mensagem = "Formato da imagem incompativel";
+        //     echo $mensagem;
+        // }
+    } else {
+        $titulo = $_POST["titulo"];
+        $descricao = $_POST["descricao"];
+        $autor = $_POST["autor"];
+        $sympla = $_POST["sympla"];
+    }
+    };
+    ?>
+    <div class="titulo-container">
+        <h2 class="titulo-conteudo">Master Page</h2>
+    </div>
+
+    <div class="master-container">
+        <section class="master-table" role="tablist">
+            <div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
+                        <a data-toggle="collapse" href="#AdicionarNoticias" role="tab" class="collapsed">
+                            ADICIONAR NOTICIAS
+                        </a>
+                    </h4>
+                </div>
+                <div id="AdicionarNoticias" class="collapse" role="tabpanel" style="height: 0px;">
+                    <div class="painel-body">
+                        <div class="artigo_texto">
+                            <p style="margin-top:0cm;">
+                                Descriçao de como funciona
+                                <br>
+                            </p>
+                            <form action="" method="post">
+                                Titulo:<input type="text" name="titulo" value="<?php echo $titulo; ?>"><br>
+                                Descrição:<input type="text" name="descricao" value="<?php echo $descricao; ?>"><br>
+                                Autor:<input type="text" name="autor" value="<?php echo $autor; ?>"><br>
+                                Sympla:<input type="text" name="sympla" value="<?php echo $sympla; ?>"><br>
+                                <input type="file" name="imagem">
+                                <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary Logout-button"><a href="Logout.php" style="text-decoration: none; color: white;">Logout</a></button>
 </body>
 
 </html>
