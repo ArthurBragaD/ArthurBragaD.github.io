@@ -68,3 +68,11 @@ h4>a:before {
     text-align: center;
     justify-self: center;
 }
+
+
+/* input[type=text] {
+    width: 100%;
+    padding: 7px;
+    margin: 5px 0;
+    border: 1px solid #000000;
+} */

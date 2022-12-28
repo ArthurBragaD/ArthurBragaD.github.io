@@ -30,48 +30,50 @@
     ?>
     <?php
     if (isset($_POST["enviar"])) {
-    if (!empty($_POST['titulo']) and !empty($_POST['descricao'] and !empty($_POST['autor']) and !empty($_POST['sympla']))) {
-        echo "Noticia catalogada";
+        if (!empty($_POST['titulo']) and !empty($_POST['descricao'] and !empty($_POST['autor']) and !empty($_POST['sympla']))) {
             $titulo = $_POST["titulo"];
             $descricao = $_POST["descricao"];
             $autor = $_POST["autor"];
             $sympla = $_POST["sympla"];
+            $secoes = $_POST["secoes"];
             $imagem = $_POST["imagem"];
             $db = new SQLite3('../db/userData.db');
-            $sql = "INSERT INTO Noticias VALUES ('$titulo','$descricao',CURRENT_DATE,'$autor ','$sympla ','$imagem');";
+            $sql = "INSERT INTO Noticias (titulo,descricao,hora,autor,sympla,secoes) VALUES ('$titulo','$descricao',CURRENT_DATE,'$autor ','$sympla','$secoes');";
             $stmt = $db->prepare($sql);
             $stmt->execute();
             // $db->execute([
-            //     ':$titulo' = $titulo,
-            //     ':$descricao'= $descricao,
-            //     ':$autor'= $autor,
-            //     ':$sympla'= $sympla,
-            //     ':$imagem'= $imagem,
-            // ]);
-            $db->close();
-        $titulo = "";
-        $descricao = "";
-        $autor = "";
-        $sympla = "";
-
-        // IMAGEM ARRUMAR DPS *ADICIONAR NO IF DE CHECAGEM DPS
-        // $formatosPermitidos = array("png", "jpeg", "jpg");
-        // $extensao = pathinfo($_FILES["imagem"]['name'], PATHINFO_EXTENSION);
-        // echo $extensao;
-        //     if(in_array($extensao, $formatosPermitidos)){
-        //     //
-        //     $mensagem = "Noticia Catalogada";
-        //     echo $mensagem;
-        // }else{
-        //             $mensagem = "Formato da imagem incompativel";
-        //     echo $mensagem;
-        // }
-    } else {
-        $titulo = $_POST["titulo"];
-        $descricao = $_POST["descricao"];
-        $autor = $_POST["autor"];
-        $sympla = $_POST["sympla"];
-    }
+                //     ':$titulo' = $titulo,
+                //     ':$descricao'= $descricao,
+                //     ':$autor'= $autor,
+                //     ':$sympla'= $sympla,
+                //     ':$imagem'= $imagem,
+                // ]);
+                $db->close();
+                echo "Noticia catalogada";
+            $titulo = "";
+            $descricao = "";
+            $autor = "";
+            $sympla = "";
+            $secoes = "";
+            // IMAGEM ARRUMAR DPS *ADICIONAR NO IF DE CHECAGEM DPS
+            // $formatosPermitidos = array("png", "jpeg", "jpg");
+            // $extensao = pathinfo($_FILES["imagem"]['name'], PATHINFO_EXTENSION);
+            // echo $extensao;
+            //     if(in_array($extensao, $formatosPermitidos)){
+            //     //
+            //     $mensagem = "Noticia Catalogada";
+            //     echo $mensagem;
+            // }else{
+            //             $mensagem = "Formato da imagem incompativel";
+            //     echo $mensagem;
+            // }
+        } else {
+            $titulo = $_POST["titulo"];
+            $descricao = $_POST["descricao"];
+            $autor = $_POST["autor"];
+            $sympla = $_POST["sympla"];
+            $secoes = $_POST["secoes"];
+        }
     };
     ?>
     <div class="titulo-container">
@@ -100,7 +102,8 @@
                                 Descrição:<input type="text" name="descricao" value="<?php echo $descricao; ?>"><br>
                                 Autor:<input type="text" name="autor" value="<?php echo $autor; ?>"><br>
                                 Sympla:<input type="text" name="sympla" value="<?php echo $sympla; ?>"><br>
-                                <input type="file" name="imagem">
+                                Seções:<input type="text" name="secoes" value="<?php echo $secoes; ?>"><br>
+                                <!-- <input type="file" name="imagem"> -->
                                 <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
                             </form>
                         </div>

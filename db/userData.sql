@@ -12,12 +12,15 @@ CREATE TABLE Funcionarios (
     cpf TEXT NOT NULL UNIQUE
 );
 CREATE TABLE Noticias(
+    id INTEGER NOT NULL,
     titulo TEXT NOT NULL,
     descricao TEXT NOT NULL,
-    data DATETIME NOT NULL, 
+    hora DATE NOT NULL, 
     autor TEXT,
     sympla TEXT,
-    imagem BLOB
+    secoes TEXT,
+    imagem BLOB,
+    PRIMARY KEY (id)
     );
 
 
@@ -25,6 +28,6 @@ INSERT INTO Funcionarios VALUES ("a","aa","a","a","a");
 
 SELECT * FROM FUNCIONARIOS;
 
-INSERT INTO Noticias VALUES ("Teste","Teste",CURRENT_DATE,"teste","teste","teste.png");
+INSERT INTO Noticias (titulo,descricao,hora,autor,sympla,secoes,imagem) VALUES ("Teatro municipal esta disponibilizando entrada gratuita nesse sabado.","Teatro municipal esta disponibilizando entrada gratuita nesse sabado. Teatro municipal esta disponibilizando entrada gratuita nesse sabado.",CURRENT_DATE,"teste","teste","teste","teste.png");
 
 SELECT * FROM Noticias;
