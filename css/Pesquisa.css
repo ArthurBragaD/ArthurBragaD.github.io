@@ -56,6 +56,13 @@
     border: 1px solid black;
 }
 
+.filtro-style-pag {
+    padding: 0.4375rem 0.5rem;
+    background-color: #f5f5f5;
+    border: 1px solid black;
+    width: 5%;
+}
+
 .resultado-pesquisa-data {
     display: flex;
     flex-direction: column;

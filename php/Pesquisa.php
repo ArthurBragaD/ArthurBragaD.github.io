@@ -33,86 +33,133 @@
 <body>
     <?php include "./Header.php"; ?>
     <?php
+    // GET da pesquisa na hotbar
     $pesquisa = $_GET["pesquisa"];
+    //Link com o DB 
     $db = new SQLite3('../db/userData.db');
+    // Numero de noticias encontradas
+    $sql2 = "SELECT DISTINCT * FROM Noticias WHERE (" . $data . " titulo LIKE '%" . $pesquisa . "%') OR (" . $data . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro;
+    $conta = $db->query($sql2);
+    //Contando o numero de noticias aparecendo
+    $num = 0;
+    while ($rows = $conta->fetchArray(SQLITE3_ASSOC)) {
+        ++$num;
+    };
+    // Filtro de data 
     $data = $_GET["data"];
     if ($data === "especifica") {
         $hora = date('Y-m-d', strtotime($_GET['hora']));
-        $data = "hora = '" . $hora. "' AND";
-    }else{
-        $data= "";
+        $data = "hora = '" . $hora . "' AND";
+    } else {
+        $data = "";
     };
-    // echo $data;
-    $pag = 0;
+    // Busca de PAG do filtro
     if (isset($_GET["pag"])) {
         $pag = $_GET["pag"];
+        if (isset($_GET["rpag"])) {
+            $pag++;
+        } else {
+            $pag--;
+            if ($pag < 0) {
+                $pag = 0;
+            };
+        };
+    } else {
+        $pag = 0;
     };
+$limite = $pag*10;
+if ($num < $limite) {
+    $pag--;
+    $limite = $pag*10;
+}
+    // Filtro da busca
     $filtro = "DESC";
     if (isset($_GET["filtro"])) {
         $filtro = $_GET["filtro"];
     };
-    $sql1 = "SELECT DISTINCT * FROM Noticias WHERE (" . $data . " titulo LIKE '%" . $pesquisa . "%') OR (" . $data . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro . " LIMIT 10 OFFSET " . $pag;
-    echo $sql1;
-    // $sql2 = "SELECT count(DISTINCT *) FROM Noticias WHERE titulo LIKE %" . $pesquisa . "% OR descricao LIKE %" . $pesquisa . "%";
+    //Contato com o DB e Pesquisa
+    $sql1 = "SELECT DISTINCT * FROM Noticias WHERE (" . $data . " titulo LIKE '%" . $pesquisa . "%') OR (" . $data . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro . " LIMIT 10 OFFSET ". $limite;
     $noticia = $db->query($sql1);
+    // Correção do Exibindo 
+    if ($num === 0) {
+        $numi = 0;
+        $numl = 0;
+    } elseif ($num < 10) {
+        $numi = 1;
+        $numl = 10;
+    } else {
+        $numi = $limite+1;
+        $numl = $numi+9;
+    };
     ?>
-    <div class="titulo-container">
-        <h2 class="titulo-conteudo">Resultado da busca</h2>
-    </div>
-    <div class="resultado-container">
-        <div class="resultado-secoes-container">
-            <div>
-                <h4 class="secoes-title"> Nas Seções:
-                </h4>
-            </div>
-            <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
-            <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
-            <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
+    <div class="conteudo">
+        <div class="titulo-container">
+            <h2 class="titulo-conteudo">Resultado da busca</h2>
         </div>
-        <div class="resultado-pesquisa-container">
-            <div class="filtro-container">
-                <div class="filtro-data">
-                    <p>A busca pelo termo "<?php echo $pesquisa; ?>" encontrou <?php echo $resultados; ?> resultados.<br> Exibindo 1 - 10 de <?php echo $resultados; ?></p>
+        <div class="resultado-container">
+            <div class="resultado-secoes-container">
+                <div>
+                    <h4 class="secoes-title"> Nas Seções:
+                    </h4>
                 </div>
-                <div class="filtro-controle">
-                    <form action="" method="GET">
-                        <input type="hidden" name="pesquisa" value="<?php echo $pesquisa; ?>">
-                        <input type="hidden" name="pag" value="<?php echo $pag; ?>">
-                        <select class="filtro-style" name="filtro">
-                            <option value="DESC">Mais Recentes</option>
-                            <option value="ASC">Mais Antigas</option>
-                        </select>
-                        <select class="filtro-style" name="data" onchange="showDiv(this)">
-                            <option value="qualquer">Em qualquer data</option>
-                            <option value="especifica">Data específica</option>
-                        </select>
-                        <button type="submit" class="filtro-style" name="submit" value="submit">Filtrar</button>
-                        <input id="hidden_div" class="filtro-style" style="display:none;" type="date" name="hora" value="<?php echo date('Y-m-d'); ?>" />
-                    </form>
-                </div>
+                <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
+                <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
+                <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
             </div>
-            <div class="resultado-pesquisa-data-container">
-                <?php while ($dados = $noticia->fetchArray(SQLITE3_ASSOC)) : ?>
-                    <article class="conteudo-lista__item clearfix">
-                        <header>
-                            <figure class="pull-left hidden-xs">
-                                <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>">
-                                    <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                                </a>
-                            </figure>
-                            <time class="conteudo-lista__item__datahora" datetime="">
-                                <?php echo $dados["hora"]; ?>
-                            </time>
-                            <h2 class="conteudo-lista__item__titulo">
-                                <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>" title="Leia na íntegra."><?php echo $dados["titulo"]; ?></a>
-                            </h2>
-                        </header>
-                        <p class="hidden-xs">
-                            Descrição: <?php echo $dados["descricao"]; ?>
-                        </p>
+            <div class="resultado-pesquisa-container">
+                <div class="filtro-container">
+                    <div class="filtro-data">
+                        <p>A busca pelo termo "<?php echo $pesquisa; ?>" encontrou <?php echo $num; ?> resultados.<br> Exibindo <?php echo $numi; ?> - <?php echo $numl; ?> de <?php echo $num; ?></p>
+                    </div>
+                    <div class="filtro-controle">
+                        <form action="" method="GET">
+                            <input type="hidden" name="pesquisa" value="<?php echo $pesquisa; ?>">
+                            <!-- <input type="hidden" name="pag" value=""> -->
+                            <select class="filtro-style" name="filtro">
+                                <option value="DESC">Mais Recentes</option>
+                                <option value="ASC">Mais Antigas</option>
+                            </select>
+                            <select class="filtro-style" name="data" onchange="showDiv(this)">
+                                <option value="qualquer">Em qualquer data</option>
+                                <option value="especifica">Data específica</option>
+                            </select>
+                            <button type="submit" class="filtro-style" name="submit" value="submit">Filtrar</button>
+                            <input id="hidden_div" class="filtro-style" style="display:none;" type="date" name="hora" value="<?php echo date('Y-m-d'); ?>" />
+                        </form>
+                    </div>
+                </div>
+                <div class="resultado-pesquisa-data-container">
+                    <?php while ($dados = $noticia->fetchArray(SQLITE3_ASSOC)) : ?>
+                        <article class="conteudo-lista__item clearfix">
+                            <header>
+                                <figure class="pull-left hidden-xs">
+                                    <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>">
+                                        <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
+                                    </a>
+                                </figure>
+                                <time class="conteudo-lista__item__datahora" datetime="">
+                                    <?php echo $dados["hora"]; ?>
+                                </time>
+                                <h2 class="conteudo-lista__item__titulo">
+                                    <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>" title="Leia na íntegra."><?php echo $dados["titulo"]; ?></a>
+                                </h2>
+                            </header>
+                            <p class="hidden-xs">
+                                Descrição: <?php echo $dados["descricao"]; ?>
+                            </p>
 
-                    </article>
-                <?php endwhile; ?>
+                        </article>
+                    <?php endwhile; ?>
+                    <div class="filtro-controle">
+                        <form action="" method="GET">
+                            <input type="hidden" name="pesquisa" value="<?php echo $pesquisa; ?>">
+                            <input type="hidden" name="pag" value="<?php echo $pag; ?>">
+                            <button type="submit" class="filtro-style bi-arrow-left" name="apag" value="0"></button>
+                            <label class="filtro-style">Página <?php echo $pag + 1; ?></label>
+                            <button type="submit" class="filtro-style bi-arrow-right" name="rpag" value="1"></button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

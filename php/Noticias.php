@@ -34,10 +34,7 @@
     <div class="noticias-container">
         <div class="noticias-data-container">
             <?php
-            // $dados = [];
             while ($dados = $noticias->fetchArray(SQLITE3_ASSOC)) :
-                //     array_push($dados, $row);
-                // var_dump($dados);
             ?>
                 <article class="conteudo-lista-item clearfix">
                     <header>
