@@ -22,7 +22,7 @@ a {
     margin-right: 5%;
 }
 
-.conteudo-lista__item {
+.conteudo-lista-item {
     width: 45%;
 }
 
@@ -46,14 +46,14 @@ a {
     float: left !important;
 }
 
-.conteudo-lista__item__datahora {
+.conteudo-lista-item-datahora {
     font-size: 0.875rem;
     font-weight: 400;
     margin: 0 0 0.0625rem 0;
     display: block;
 }
 
-.conteudo-lista__item__titulo {
+.conteudo-lista-item-titulo {
     font-size: 1.125rem;
     margin: 0 0 0.375rem 0;
 }

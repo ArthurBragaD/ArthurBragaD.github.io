@@ -23,106 +23,59 @@
 
 <body>
     <?php include "./Header.php"; ?>
+    <?php
+    $db = new SQLite3('../db/userData.db');
+    $sql = "SELECT * FROM Noticias ORDER BY id DESC LIMIT 6";
+    $noticias = $db->query($sql);
+    ?>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Notícias</h2>
     </div>
     <div class="noticias-container">
         <div class="noticias-data-container">
-            <article class="conteudo-lista__item clearfix">
+            <?php
+            // $dados = [];
+            while ($dados = $noticias->fetchArray(SQLITE3_ASSOC)) :
+                //     array_push($dados, $row);
+                // var_dump($dados);
+            ?>
+                <article class="conteudo-lista-item clearfix">
+                    <header>
+                        <figure class="pull-left hidden-xs">
+                            <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>" target="_self">
+                                <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
+                            </a>
+                        </figure>
+                        <time class="conteudo-lista-item-datahora" datetime="">
+                            <?php echo $dados["hora"]; ?>
+                        </time>
+                        <h2 class="conteudo-lista-item-titulo">
+                            <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>" method="GET" target="_self" title="Leia na íntegra."><?php echo $dados["titulo"]; ?></a>
+                        </h2>
+                    </header>
+                    <p class="hidden-xs">
+                        Descrição: <?php echo $dados["descricao"]; ?>
+                    </p>
+                </article>
+            <?php endwhile; ?>
+            <!-- <article class="conteudo-lista-item clearfix">
                 <header>
                     <figure class="pull-left hidden-xs">
                         <a href="" target="_self">
                             <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
                         </a>
                     </figure>
-                    <time class="conteudo-lista__item__datahora" datetime="">
+                    <time class="conteudo-lista-item-datahora" datetime="">
                         00/00/0000-00h00min
                     </time>
-                    <h2 class="conteudo-lista__item__titulo">
+                    <h2 class="conteudo-lista-item-titulo">
                         <a href="" target="_self" title="Leia na íntegra.">Titulo da noticia</a>
                     </h2>
                 </header>
                 <p class="hidden-xs">
                     Descrição: Teste
                 </p>
-
-            </article>
-            <article class="conteudo-lista__item clearfix">
-                <header>
-                    <figure class="pull-left hidden-xs">
-                        <a href="" target="_self">
-                            <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                        </a>
-                    </figure>
-                    <time class="conteudo-lista__item__datahora" datetime="">
-                        00/00/0000-00h00min
-                    </time>
-                    <h2 class="conteudo-lista__item__titulo">
-                        <a href="" target="_self" title="Leia na íntegra.">Titulo da noticia</a>
-                    </h2>
-                </header>
-                <p class="hidden-xs">
-                    Descrição: Teste
-                </p>
-
-            </article>
-            <article class="conteudo-lista__item clearfix">
-                <header>
-                    <figure class="pull-left hidden-xs">
-                        <a href="" target="_self">
-                            <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                        </a>
-                    </figure>
-                    <time class="conteudo-lista__item__datahora" datetime="">
-                        00/00/0000-00h00min
-                    </time>
-                    <h2 class="conteudo-lista__item__titulo">
-                        <a href="" target="_self" title="Leia na íntegra.">Titulo da noticia</a>
-                    </h2>
-                </header>
-                <p class="hidden-xs">
-                    Descrição: Teste
-                </p>
-
-            </article>
-            <article class="conteudo-lista__item clearfix">
-                <header>
-                    <figure class="pull-left hidden-xs">
-                        <a href="" target="_self">
-                            <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                        </a>
-                    </figure>
-                    <time class="conteudo-lista__item__datahora" datetime="">
-                        00/00/0000-00h00min
-                    </time>
-                    <h2 class="conteudo-lista__item__titulo">
-                        <a href="" target="_self" title="Leia na íntegra.">Titulo da noticia</a>
-                    </h2>
-                </header>
-                <p class="hidden-xs">
-                    Descrição: Teste
-                </p>
-
-            </article>
-            <article class="conteudo-lista__item clearfix">
-                <header>
-                    <figure class="pull-left hidden-xs">
-                        <a href="" target="_self">
-                            <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                        </a>
-                    </figure>
-                    <time class="conteudo-lista__item__datahora" datetime="">
-                        00/00/0000-00h00min
-                    </time>
-                    <h2 class="conteudo-lista__item__titulo">
-                        <a href="" target="_self" title="Leia na íntegra.">Titulo da noticia</a>
-                    </h2>
-                </header>
-                <p class="hidden-xs">
-                    Descrição: Teste
-                </p>
-
-            </article>
+            </article> -->
         </div>
     </div>
     <div class="ver-mais-button"><button class="btn btn-primary">Ver Mais Noticias</button></div>
