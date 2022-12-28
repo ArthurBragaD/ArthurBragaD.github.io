@@ -19,10 +19,43 @@
     <link rel="stylesheet" href="/css/Hotbar.css">
     <link rel="stylesheet" href="/css/Pesquisa.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script type="text/javascript">
+        function showDiv(select) {
+            if (select.value == "especifica") {
+                document.getElementById('hidden_div').style.display = "block";
+            } else {
+                document.getElementById('hidden_div').style.display = "none";
+            }
+        }
+    </script>
 </head>
 
 <body>
     <?php include "./Header.php"; ?>
+    <?php
+    $pesquisa = $_GET["pesquisa"];
+    $db = new SQLite3('../db/userData.db');
+    $data = $_GET["data"];
+    if ($data === "especifica") {
+        $hora = date('Y-m-d', strtotime($_GET['hora']));
+        $data = "hora = '" . $hora. "' AND";
+    }else{
+        $data= "";
+    };
+    // echo $data;
+    $pag = 0;
+    if (isset($_GET["pag"])) {
+        $pag = $_GET["pag"];
+    };
+    $filtro = "DESC";
+    if (isset($_GET["filtro"])) {
+        $filtro = $_GET["filtro"];
+    };
+    $sql1 = "SELECT DISTINCT * FROM Noticias WHERE (" . $data . " titulo LIKE '%" . $pesquisa . "%') OR (" . $data . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro . " LIMIT 10 OFFSET " . $pag;
+    echo $sql1;
+    // $sql2 = "SELECT count(DISTINCT *) FROM Noticias WHERE titulo LIKE %" . $pesquisa . "% OR descricao LIKE %" . $pesquisa . "%";
+    $noticia = $db->query($sql1);
+    ?>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Resultado da busca</h2>
     </div>
@@ -39,68 +72,47 @@
         <div class="resultado-pesquisa-container">
             <div class="filtro-container">
                 <div class="filtro-data">
-                    <p>A busca pelo termo "X" encontrou Y resultados.<br> Exibindo 1 - 10 de Z</p>
+                    <p>A busca pelo termo "<?php echo $pesquisa; ?>" encontrou <?php echo $resultados; ?> resultados.<br> Exibindo 1 - 10 de <?php echo $resultados; ?></p>
                 </div>
                 <div class="filtro-controle">
-                    <select class="filtro-style">
-                        <option value="aecentes" selected>Mais Recentes</option>
-                        <option value="antigas">Mais Antigas</option>
-                        <option value="alfabética">Alfabética</option>
-                    </select>
-                    <select class="filtro-style">
-                        <option value="qualquer" selected>Em qualquer data</option>
-                        <option value="específica">Data específica</option>
-                    </select>
-                    <button class="filtro-style">Filtrar</button>
+                    <form action="" method="GET">
+                        <input type="hidden" name="pesquisa" value="<?php echo $pesquisa; ?>">
+                        <input type="hidden" name="pag" value="<?php echo $pag; ?>">
+                        <select class="filtro-style" name="filtro">
+                            <option value="DESC">Mais Recentes</option>
+                            <option value="ASC">Mais Antigas</option>
+                        </select>
+                        <select class="filtro-style" name="data" onchange="showDiv(this)">
+                            <option value="qualquer">Em qualquer data</option>
+                            <option value="especifica">Data específica</option>
+                        </select>
+                        <button type="submit" class="filtro-style" name="submit" value="submit">Filtrar</button>
+                        <input id="hidden_div" class="filtro-style" style="display:none;" type="date" name="hora" value="<?php echo date('Y-m-d'); ?>" />
+                    </form>
                 </div>
             </div>
             <div class="resultado-pesquisa-data-container">
-                <article class="conteudo-lista__item clearfix">
-                    <header>
-                        <figure class="pull-left hidden-xs">
-                            <a href="" target="_self">
-                                <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                            </a>
-                        </figure>
+                <?php while ($dados = $noticia->fetchArray(SQLITE3_ASSOC)) : ?>
+                    <article class="conteudo-lista__item clearfix">
+                        <header>
+                            <figure class="pull-left hidden-xs">
+                                <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>">
+                                    <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
+                                </a>
+                            </figure>
+                            <time class="conteudo-lista__item__datahora" datetime="">
+                                <?php echo $dados["hora"]; ?>
+                            </time>
+                            <h2 class="conteudo-lista__item__titulo">
+                                <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>" title="Leia na íntegra."><?php echo $dados["titulo"]; ?></a>
+                            </h2>
+                        </header>
+                        <p class="hidden-xs">
+                            Descrição: <?php echo $dados["descricao"]; ?>
+                        </p>
 
-
-                        <time class="conteudo-lista__item__datahora" datetime="">
-                            00/00/0000
-                            -
-                            00h00min
-                        </time>
-                        <h2 class="conteudo-lista__item__titulo">
-                            <a href="" target="_self" title="Leia na íntegra.">Teste de pesquisa</a>
-                        </h2>
-                    </header>
-                    <p class="hidden-xs">
-                        Data:&nbsp; Teste Horário:&nbsp; Teste Local:&nbsp; Teste &nbsp; Descrição: Teste
-                    </p>
-
-                </article>
-                <article class="conteudo-lista__item clearfix">
-                    <header>
-                        <figure class="pull-left hidden-xs">
-                            <a href="" target="_self">
-                                <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                            </a>
-                        </figure>
-
-
-                        <time class="conteudo-lista__item__datahora" datetime="">
-                            00/00/0000
-                            -
-                            00h00min
-                        </time>
-                        <h2 class="conteudo-lista__item__titulo">
-                            <a href="" target="_self" title="Leia na íntegra.">Teste de pesquisa</a>
-                        </h2>
-                    </header>
-                    <p class="hidden-xs">
-                        Data:&nbsp; Teste Horário:&nbsp; Teste Local:&nbsp; Teste &nbsp; Descrição: Teste
-                    </p>
-
-                </article>
+                    </article>
+                <?php endwhile; ?>
             </div>
         </div>
     </div>
