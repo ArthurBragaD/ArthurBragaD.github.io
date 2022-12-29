@@ -1,4 +1,5 @@
 PRAGMA foreign_keys = OFF;
+SELECT * FROM Funcionarios;
 DROP TABLE IF EXISTS Funcionarios;
 SELECT * FROM Noticias;
 DROP TABLE IF EXISTS Noticias;
@@ -7,7 +8,7 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE Funcionarios (
     user TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
+    senha TEXT NOT NULL,
     nomeReal TEXT NOT NULL UNIQUE,
     cpf TEXT NOT NULL UNIQUE
 );

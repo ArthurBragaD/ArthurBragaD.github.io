@@ -3,9 +3,9 @@ Link: ArthurBragaD.github.io/Index.html
 Progresso Atual:
 - MASTER
 | Modificar o carrosel
-| Excluir conta
-| Adicionar conta
-| Remover Noticia 
+| Excluir conta // fazer hoje
+| Adicionar conta // fazer hoje
+| Remover Noticia // fazer hoje
 - Mapa Cultural
 | Esperar o link do Victor
 - Informaçoes

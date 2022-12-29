@@ -22,60 +22,20 @@
 </head>
 
 <body>
+    <script type="text/javascript">
+        function ajusta_texto(h) {
+            h.style.height = "20px";
+            h.style.height = (h.scrollHeight) + "px";
+        }
+    </script>
     <?php include "./Header.php"; ?>
     <?php
     session_start();
     if (!isset($_SESSION["currentUserName"])) header('Location: Login.php');
     // echo $_SESSION["loggedIn"] . "<br>" . $_SESSION["startTime"] . "<br>" . $_SESSION["currentUserName"];
     ?>
-    <?php
-    if (isset($_POST["enviar"])) {
-        if (!empty($_POST['titulo']) and !empty($_POST['descricao'] and !empty($_POST['autor']) and !empty($_POST['sympla']))) {
-            $titulo = $_POST["titulo"];
-            $descricao = $_POST["descricao"];
-            $autor = $_POST["autor"];
-            $sympla = $_POST["sympla"];
-            $secoes = $_POST["secoes"];
-            $imagem = $_POST["imagem"];
-            $db = new SQLite3('../db/userData.db');
-            $sql = "INSERT INTO Noticias (titulo,descricao,hora,autor,sympla,secoes) VALUES ('$titulo','$descricao',CURRENT_DATE,'$autor ','$sympla','$secoes');";
-            $stmt = $db->prepare($sql);
-            $stmt->execute();
-            // $db->execute([
-                //     ':$titulo' = $titulo,
-                //     ':$descricao'= $descricao,
-                //     ':$autor'= $autor,
-                //     ':$sympla'= $sympla,
-                //     ':$imagem'= $imagem,
-                // ]);
-                $db->close();
-                echo "Noticia catalogada";
-            $titulo = "";
-            $descricao = "";
-            $autor = "";
-            $sympla = "";
-            $secoes = "";
-            // IMAGEM ARRUMAR DPS *ADICIONAR NO IF DE CHECAGEM DPS
-            // $formatosPermitidos = array("png", "jpeg", "jpg");
-            // $extensao = pathinfo($_FILES["imagem"]['name'], PATHINFO_EXTENSION);
-            // echo $extensao;
-            //     if(in_array($extensao, $formatosPermitidos)){
-            //     //
-            //     $mensagem = "Noticia Catalogada";
-            //     echo $mensagem;
-            // }else{
-            //             $mensagem = "Formato da imagem incompativel";
-            //     echo $mensagem;
-            // }
-        } else {
-            $titulo = $_POST["titulo"];
-            $descricao = $_POST["descricao"];
-            $autor = $_POST["autor"];
-            $sympla = $_POST["sympla"];
-            $secoes = $_POST["secoes"];
-        }
-    };
-    ?>
+    <?php include "./CatalogarNoticia.php"; ?>
+    <?php include "./CatalogarSenha.php"; ?>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Master Page</h2>
     </div>
@@ -93,21 +53,99 @@
                 <div id="AdicionarNoticias" class="collapse" role="tabpanel" style="height: 0px;">
                     <div class="painel-body">
                         <div class="artigo_texto">
-                            <p style="margin-top:0cm;">
-                                Descriçao de como funciona
-                                <br>
-                            </p>
-                            <form action="" method="post">
-                                Titulo:<input type="text" name="titulo" value="<?php echo $titulo; ?>"><br>
-                                Descrição:<input type="text" name="descricao" value="<?php echo $descricao; ?>"><br>
-                                Autor:<input type="text" name="autor" value="<?php echo $autor; ?>"><br>
-                                Sympla:<input type="text" name="sympla" value="<?php echo $sympla; ?>"><br>
-                                Seções:<input type="text" name="secoes" value="<?php echo $secoes; ?>"><br>
-                                <!-- <input type="file" name="imagem"> -->
-                                <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+                            <form action="" method="post" class="form-container">
+                                <ul>
+                                    <li>
+                                        <label for="titulo">Título</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="titulo" value="<?php echo $titulo; ?>"><?php echo $titulo; ?></textarea>
+                                        <span>Coloque o Título da noticia</span>
+                                    </li>
+                                    <li>
+                                        <label for="descricao">Descrição</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="descricao" value="<?php echo $descricao; ?>"><?php echo $descricao; ?></textarea>
+                                        <span>Coloque a descrição da noticia</span>
+                                    </li>
+                                    <li>
+                                        <label for="sympla">Sympla</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="sympla" value="<?php echo $sympla; ?>"><?php echo $sympla; ?></textarea>
+                                        <span>Coloque o link do Sympla como (Ex: https://www.sympla.com.br)</span>
+                                    </li>
+                                    <li>
+                                        <label for="autor">Autor</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="autor" value="<?php echo $autor; ?>"><?php echo $autor; ?></textarea>
+                                        <span>Coloque o nome do Autor</span>
+                                    </li>
+                                    <li>
+                                        <label for="secoes">Seções</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="secoes" value="<?php echo $secoes; ?>"><?php echo $secoes; ?></textarea>
+                                        <span>Coloque as seções</span>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn btn-primary" name="enviarnoticia">Enviar</button>
+                                    </li>
+                                </ul>
                             </form>
                         </div>
                     </div>
+                </div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
+                        <a data-toggle="collapse" href="#AdicionarConta" role="tab" class="collapsed">
+                            ADICIONAR CONTA
+                        </a>
+                    </h4>
+                </div>
+                <div id="AdicionarConta" class="collapse" role="tabpanel" style="height: 0px;">
+                    <div class="painel-body">
+                        <div class="artigo_texto">
+                            <form action="" method="post" class="form-container">
+                                <ul>
+                                    <li>
+                                        <label for="username">Username</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="username" value="<?php echo $username; ?>"><?php echo $username; ?></textarea>
+                                        <span>Coloque o seu Username</span>
+                                    </li>
+                                    <li>
+                                        <label for="nome">Nome</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="nome" value="<?php echo $nome; ?>"><?php echo $nome; ?></textarea>
+                                        <span>Coloque o seu nome</span>
+                                    </li>
+                                    <li>
+                                        <label for="email">Email</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="email" value="<?php echo $email; ?>"><?php echo $email; ?></textarea>
+                                        <span>Coloque o seu Email</span>
+                                    </li>
+                                    <li>
+                                        <label for="cpf">CPF</label>
+                                        <textarea onkeyup="ajusta_texto(this)" maxlength="11" name="cpf" value="<?php echo $cpf; ?>"><?php echo $cpf; ?></textarea>
+                                        <span>Digite seu CPF</span>
+                                    </li>
+                                    <li>
+                                        <label for="senha">Senha</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="senha" value="<?php echo $senha; ?>"><?php echo $senha; ?></textarea>
+                                        <span>Digite a senha que deseje colocar</span>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn btn-primary" name="enviarconta">Enviar</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
+                        <a  href="./MudaNoticia.php" class="collapsed">
+                            MODIFICAR|EXCLUIR NOTICIA
+                        </a>
+                    </h4>
+                </div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
+                        <a  href="./MudaConta.php" class="collapsed">
+                            MODIFICAR|EXCLUIR CONTA
+                        </a>
+                    </h4>
                 </div>
             </div>
         </section>

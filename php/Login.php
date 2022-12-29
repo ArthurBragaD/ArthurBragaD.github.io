@@ -39,7 +39,7 @@ session_start();
         $funcionario_user_email = trim($_POST["userORemail"]);
         $password = trim($_POST["senha"]);
         $db = new SQLite3('../db/userData.db');
-        $funcionario_resultado = $db->query('SELECT * FROM Funcionarios WHERE (user = "' . $funcionario_user_email . '" OR email = "' . $funcionario_user_email . '") AND password = "' . $password . '";');
+        $funcionario_resultado = $db->query('SELECT * FROM Funcionarios WHERE (user = "' . $funcionario_user_email . '" OR email = "' . $funcionario_user_email . '") AND senha = "' . $password . '";');
         $row = $funcionario_resultado->fetchArray(SQLITE3_ASSOC);
         if (is_array($row) && sizeof($row) > 0) {
             if (!isset($_POST["remember"])) {
