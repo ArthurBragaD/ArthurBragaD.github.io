@@ -117,7 +117,7 @@
                                     </li>
                                     <li>
                                         <label for="cpf">CPF</label>
-                                        <textarea onkeyup="ajusta_texto(this)" maxlength="11" name="cpf" value="<?php echo $cpf; ?>"><?php echo $cpf; ?></textarea>
+                                        <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="11" name="cpf" value="<?php echo $cpf; ?>">
                                         <span>Digite seu CPF</span>
                                     </li>
                                     <li>
@@ -135,14 +135,14 @@
                 </div>
                 <div class="painel-heading">
                     <h4 class="painel-title Menu-titulo">
-                        <a  href="./MudaNoticia.php" class="collapsed">
+                        <a href="./MudaNoticia.php" class="collapsed">
                             MODIFICAR|EXCLUIR NOTICIA
                         </a>
                     </h4>
                 </div>
                 <div class="painel-heading">
                     <h4 class="painel-title Menu-titulo">
-                        <a  href="./MudaConta.php" class="collapsed">
+                        <a href="./MudaConta.php" class="collapsed">
                             MODIFICAR|EXCLUIR CONTA
                         </a>
                     </h4>

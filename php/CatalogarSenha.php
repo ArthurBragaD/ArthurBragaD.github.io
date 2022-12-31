@@ -30,6 +30,13 @@ if (isset($_POST["enviarconta"])) {
             $email = "";
             $senha = $_POST["senha"];
             $cpf = $_POST["cpf"];
+        } elseif (strlen((string)$cpf) != 11) {
+            echo "CPF não tem 11 digitos";
+            $nome = $_POST["nome"];
+            $username = $_POST["username"];
+            $email = $_POST["email"];
+            $senha = $_POST["senha"];
+            $cpf = "";
         } else {
             $sql = "INSERT INTO Funcionarios (nomeReal,user,email,senha,cpf) VALUES ('$nome','$username','$email','$senha','$cpf');";
             $stmt = $db->prepare($sql);

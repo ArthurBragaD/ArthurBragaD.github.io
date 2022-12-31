@@ -3,9 +3,7 @@ Link: ArthurBragaD.github.io/Index.html
 Progresso Atual:
 - MASTER
 | Modificar o carrosel
-| Excluir conta // fazer hoje
-| Adicionar conta // fazer hoje
-| Remover Noticia // fazer hoje
+|Botao de voltar
 - Mapa Cultural
 | Esperar o link do Victor
 - Informaçoes
@@ -24,3 +22,7 @@ Progresso Atual:
 | Perguntar oq ele vai querer
 Pronto:
 - EQUIPAMENTOS
+
+
+
+//<?php echo substr($dados["titulo"],0,10); ?>

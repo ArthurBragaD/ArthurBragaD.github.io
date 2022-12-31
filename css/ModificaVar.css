@@ -1,0 +1,42 @@
+.table-container {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.form-organiza {
+    display: flex;
+    flex-direction: row;
+}
+
+.organiza-display {
+    width: 50%;
+    margin-left: 0%;
+}
+
+.encontrados {
+    width: 45%;
+    margin-left: 5%;
+}
+
+.botao-modifica {
+    width: 75px;
+    height: 75px;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.botao-deleta {
+    width: 75px;
+    height: 75px;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}

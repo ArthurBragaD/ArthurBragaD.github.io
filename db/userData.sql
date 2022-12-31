@@ -10,7 +10,8 @@ CREATE TABLE Funcionarios (
     email TEXT NOT NULL UNIQUE,
     senha TEXT NOT NULL,
     nomeReal TEXT NOT NULL UNIQUE,
-    cpf TEXT NOT NULL UNIQUE
+    cpf TEXT NOT NULL UNIQUE,
+    PRIMARY KEY (cpf)
 );
 CREATE TABLE Noticias(
     id INTEGER NOT NULL,
@@ -25,7 +26,7 @@ CREATE TABLE Noticias(
     );
 
 
-INSERT INTO Funcionarios VALUES ("a","aa","a","a","a");
+INSERT INTO Funcionarios VALUES ("a","aa","a","a","11111111111");
 
 SELECT * FROM FUNCIONARIOS;
 

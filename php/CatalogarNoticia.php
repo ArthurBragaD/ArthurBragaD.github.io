@@ -1,6 +1,6 @@
     <?php
     if (isset($_POST["enviarnoticia"])) {
-        if (!empty($_POST['titulo']) and !empty($_POST['descricao']) and !empty($_POST['autor']) and !empty($_POST['sympla'])) {
+        if (!empty($_POST['titulo']) and !empty($_POST['descricao']) and !empty($_POST['autor'])) {
             $titulo = $_POST["titulo"];
             $descricao = $_POST["descricao"];
             $autor = $_POST["autor"];

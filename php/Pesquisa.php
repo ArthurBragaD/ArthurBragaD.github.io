@@ -38,7 +38,7 @@
     //Link com o DB 
     $db = new SQLite3('../db/userData.db');
     // Numero de noticias encontradas
-    $sql2 = "SELECT DISTINCT * FROM Noticias WHERE (" . $data . " titulo LIKE '%" . $pesquisa . "%') OR (" . $data . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro;
+    $sql2 = "SELECT DISTINCT * FROM Noticias WHERE (" . $buscaData . " titulo LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro;
     $conta = $db->query($sql2);
     //Contando o numero de noticias aparecendo
     $num = 0;
@@ -49,9 +49,9 @@
     $data = $_GET["data"];
     if ($data === "especifica") {
         $hora = date('Y-m-d', strtotime($_GET['hora']));
-        $data = "hora = '" . $hora . "' AND";
+        $buscaData = "hora = '" . $hora . "' AND";
     } else {
-        $data = "";
+        $buscaData = "";
     };
     // Busca de PAG do filtro
     if (isset($_GET["pag"])) {
@@ -67,18 +67,18 @@
     } else {
         $pag = 0;
     };
-$limite = $pag*10;
-if ($num < $limite) {
-    $pag--;
-    $limite = $pag*10;
-}
+    $limite = $pag * 10;
+    if ($num < $limite) {
+        $pag--;
+        $limite = $pag * 10;
+    }
     // Filtro da busca
     $filtro = "DESC";
     if (isset($_GET["filtro"])) {
         $filtro = $_GET["filtro"];
     };
     //Contato com o DB e Pesquisa
-    $sql1 = "SELECT DISTINCT * FROM Noticias WHERE (" . $data . " titulo LIKE '%" . $pesquisa . "%') OR (" . $data . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro . " LIMIT 10 OFFSET ". $limite;
+    $sql1 = "SELECT DISTINCT * FROM Noticias WHERE (" . $buscaData . " titulo LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro . " LIMIT 10 OFFSET " . $limite;
     $noticia = $db->query($sql1);
     // Correção do Exibindo 
     if ($num === 0) {
@@ -88,8 +88,8 @@ if ($num < $limite) {
         $numi = 1;
         $numl = 10;
     } else {
-        $numi = $limite+1;
-        $numl = $numi+9;
+        $numi = $limite + 1;
+        $numl = $numi + 9;
     };
     ?>
     <div class="conteudo">
@@ -149,11 +149,15 @@ if ($num < $limite) {
                             </p>
 
                         </article>
-                    <?php endwhile; ?>
+                    <?php endwhile;
+                    $db->close(); ?>
                     <div class="filtro-controle">
                         <form action="" method="GET">
                             <input type="hidden" name="pesquisa" value="<?php echo $pesquisa; ?>">
                             <input type="hidden" name="pag" value="<?php echo $pag; ?>">
+                            <input type="hidden" name="filtro" value="<?php echo $filtro; ?>">
+                            <input type="hidden" name="data" value="<?php echo $data; ?>">
+                            <input type="hidden" name="hora" value="<?php echo $hora; ?>">
                             <button type="submit" class="filtro-style bi-arrow-left" name="apag" value="0"></button>
                             <label class="filtro-style">Página <?php echo $pag + 1; ?></label>
                             <button type="submit" class="filtro-style bi-arrow-right" name="rpag" value="1"></button>

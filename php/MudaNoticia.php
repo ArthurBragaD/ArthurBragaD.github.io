@@ -18,27 +18,94 @@
     </script>
     <link rel="stylesheet" href="/css/Hotbar.css">
     <link rel="stylesheet" href="/css/Master.css">
+    <link rel="stylesheet" href="/css/ModificaVar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
 <body>
+    <script type="text/javascript">
+        function ajusta_texto(h) {
+            h.style.height = "20px";
+            h.style.height = (h.scrollHeight) + "px";
+        }
+    </script>
     <?php include "./Header.php"; ?>
     <?php
     session_start();
     if (!isset($_SESSION["currentUserName"])) header('Location: Login.php');
     // echo $_SESSION["loggedIn"] . "<br>" . $_SESSION["startTime"] . "<br>" . $_SESSION["currentUserName"];
     ?>
-    <table>
-        <thead>
-            <tr>
-                <th>Título</th>
-                <th>Descrição</th>
-                <th>Autor</th>
-                <th>Data</th>
-                <th colspan="2">Data</th>
-            </tr>
-        </thead>
-    </table>
+    <?php
+    if (isset($_GET["enviarnoticia"])) {
+        $buscaNoticia = $_GET["buscaNoticia"];
+        $db = new SQLite3('../db/userData.db');
+        $sql = "SELECT DISTINCT * FROM Noticias WHERE titulo LIKE '%" . $buscaNoticia . "%' ORDER BY id DESC";
+        $contando = $db->query($sql);
+        $noticia = $db->query($sql);
+        $num = 0;
+        while ($conta = $contando->fetchArray(SQLITE3_ASSOC)) {
+            ++$num;
+        };
+    } else {
+        $num = 0;
+    };
+    ?>
+    <div class="titulo-container">
+        <h2 class="titulo-conteudo">Modifica|Exclui Noticias</h2>
+    </div>
+    <div class="table-container">
+        <form method="GET" action="" class="form-container form-organiza">
+            <ul class="organiza-display">
+                <li style="    border: 1px solid #DDDDDD; margin-bottom: 30px;">
+                    <label for="buscaNoticia">Busca</label>
+                    <textarea onkeyup="ajusta_texto(this)" name="buscaNoticia" value="<?php echo $buscaNoticia; ?>"><?php echo $buscaNoticia; ?></textarea>
+                    <span>Coloque uma parte do Título da noticia</span>
+                </li>
+                <button type="submit" class="btn btn-primary" name="enviarnoticia">Buscar</button>
+            </ul>
+            <div class="encontrados">
+                <p>A busca pelo termo "<?php echo $buscaNoticia; ?>" encontrou <?php echo $num; ?> resultados.</p>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Título</th>
+                    <th style="width: 40%;">Descrição</th>
+                    <th style="width: 10%;">Autor</th>
+                    <th style="width: 10%;">Data</th>
+                    <th style="width: 10%;" colspan="2"> Botões</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($dados = $noticia->fetchArray(SQLITE3_ASSOC)) : ?>
+                    <tr>
+                        <td><?php echo $dados["titulo"]; ?></td>
+                        <td><?php echo $dados["descricao"]; ?></td>
+                        <td><?php echo $dados["autor"]; ?></td>
+                        <td><time class="conteudo-lista__item__datahora" datetime="">
+                                <?php echo $dados["hora"]; ?>
+                            </time></td>
+                        <td>
+                            <form method="GET" action="./ModificaNoticia.php">
+                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
+                                <input type="hidden" name="busca" value="<?php echo $buscaNoticia; ?>">
+                                <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="GET" action="./ModificaNoticia.php">
+                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
+                                <input type="hidden" name="busca" value="<?php echo $buscaNoticia; ?>">
+                                <button type="submit" name="fazer" value="excluir" class="botao-deleta rounded-circle bi bi-trash-fill"></button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endwhile;
+                $db->close(); ?>
+            </tbody>
+        </table>
+    </div>
 
     <button type="submit" class="btn btn-primary Logout-button"><a href="Logout.php" style="text-decoration: none; color: white;">Logout</a></button>
 </body>
