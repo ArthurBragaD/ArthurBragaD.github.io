@@ -3,23 +3,24 @@ Link: ArthurBragaD.github.io/Index.html
 Progresso Atual:
 - MASTER
 | Modificar o carrosel
-|Botao de voltar
-- Mapa Cultural
-| Esperar o link do Victor
-- Informaçoes
-| Esperar o Victor escrever sobre
-- Noticia
-| Arrumar o CSS
-- Noticias
-| Arrumar o CSS
-- Ver Mais Noticias
-| Linkar com a pesquisa? ou fazer uma pagina nova?
+
+- NOTICIAS em geral
+| Arrumar as secoes
+
+
 - Contate-nos
 | Criar Pagina
+- Informaçoes
+| Esperar o Victor escrever sobre
+- Ver Mais Noticias
+| Linkar com a pesquisa? ou fazer uma pagina nova?
 - Editais
 | Falar com o victor para arrumarmos juntos
 - Inicio
 | Perguntar oq ele vai querer
+
+- Mapa Cultural
+| Esperar o link do Victor
 Pronto:
 - EQUIPAMENTOS
 

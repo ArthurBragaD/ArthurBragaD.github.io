@@ -49,6 +49,13 @@ if (isset($_POST["enviarconta"])) {
             $senha = "";
             $cpf = "";
         };
+}else {
+    echo "Por favor preencher todas as areas.";
+        $nome = $_POST["nome"];
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+        $cpf = $_POST["cpf"];
 };
 };
 ?>

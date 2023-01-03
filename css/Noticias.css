@@ -26,11 +26,15 @@ a {
     width: 45%;
 }
 
+.containerimagem {
+    width: 150px;
+}
+
 .resultado-pesquisa-img {
     display: block;
-    max-width: 115px;
-    margin-bottom: 3px;
-    padding: 4px;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
     margin-bottom: 1.5rem;
     line-height: 1.5;
     background-color: #fff;

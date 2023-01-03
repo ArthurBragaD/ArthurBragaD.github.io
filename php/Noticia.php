@@ -35,21 +35,25 @@
         <section class="noticia-table">
             <div class="painel-body">
                 <h2 class="noticia-titulo"><?php echo $dados["titulo"]; ?></h2>
-                <img src="" class="imagem-noticia">
+                <p style="word-spacing:0px; text-align: right;; margin-right: 5%"><strong>Escrito por:
+                    </strong><?php echo $dados["autor"]; ?></p>
+                <div class="containerimagem">
+                    <img src="<?php echo $dados["localizado"]; ?>" class="imagem-noticia">
+                </div>
                 <div class="artigo_texto">
                     <div>
-                        <p style="margin-top:0cm;">
+                        <p style="word-spacing:0px;"><strong>Descrição:
+                            </strong></p>
+                        <p style="margin-top:0cm; white-space: pre-line;">
 
                             <?php echo $dados["descricao"]; ?>
                         </p>
                         <p style="word-spacing:0px;"><strong>Informações:
                             </strong></p>
                         <p style="word-spacing:0px;"><strong>Sympla:
-                            </strong><?php echo $dados["sympla"]; ?></p>
+                            </strong><a href="<?php echo $dados["sympla"]; ?>"><?php echo $dados["sympla"]; ?></a></p>
                         <p style="word-spacing:0px;"><strong>Data de publicação:
                             </strong><?php echo $dados["hora"]; ?></p>
-                        <p style="word-spacing:0px;"><strong>Escrito por:
-                            </strong><?php echo $dados["autor"]; ?></p>
                     </div>
                 </div>
                 <div class="ver-mais-button"><button class="btn btn-primary">Ver Mais Noticias</button></div>

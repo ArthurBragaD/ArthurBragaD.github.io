@@ -50,6 +50,11 @@
         $num = 0;
     };
     ?>
+    <div>
+        <form action="./Master.php">
+            <button type="submit" class="btn btn-primary voltarbutton">Voltar</button>
+        </form>
+    </div>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Modifica|Exclui Noticias</h2>
     </div>
@@ -87,7 +92,7 @@
                                 <?php echo $dados["hora"]; ?>
                             </time></td>
                         <td>
-                            <form method="GET" action="./ModificaNoticia.php">
+                            <form method="GET" action="./ModificaNoticia.php" >
                                 <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
                                 <input type="hidden" name="busca" value="<?php echo $buscaNoticia; ?>">
                                 <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>

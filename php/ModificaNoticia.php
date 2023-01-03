@@ -46,28 +46,55 @@
         $db->close();
         header('Location: MudaNoticia.php?buscaNoticia=' . $busca . '&enviarnoticia=');
     };
-    if (isset($_GET["atualizar"])) {
-        if (!empty($_GET['titulo']) and !empty($_GET['descricao']) and !empty($_GET['autor'])) {
-            $titulo = $_GET['titulo'];
-            $descricao = $_GET['descricao'];
-            $sympla = $_GET['sympla'];
-            $autor = $_GET['autor'];
-            $secoes = $_GET['secoes'];
-            $id =  $_GET["id"];
+    if (isset($_POST["atualizar"])) {
+        if (!empty($_POST['titulo']) and !empty($_POST['descricao']) and !empty($_POST['autor'])) {
             $db = new SQLite3('../db/userData.db');
-            $sql = "UPDATE Noticias SET titulo = '" . $titulo . "', descricao = '" . $descricao . "', sympla='" . $sympla . "', autor = '" . $autor . "', secoes = '" . $secoes . "' WHERE id=" . $id;
-            echo $sql;
-            $db->exec($sql);
-            echo "entrou";
-            //   $db->close();
-            header('Location: MudaNoticia.php?buscaNoticia=' . $busca . '&enviarnoticia=');
+            $titulo = $_POST['titulo'];
+            $descricao = $_POST['descricao'];
+            $sympla = $_POST['sympla'];
+            $autor = $_POST['autor'];
+            $secoes = $_POST['secoes'];
+            $id =  $_POST["id"];
+            if ($_FILES["imagem"]["size"] != 0) {
+                $file_name = $_FILES['imagem']['name'];
+                $file_temp = $_FILES['imagem']['tmp_name'];
+                $exp = explode(".", $file_name);
+                $ext = end($exp);
+                $imagem = time() . "." . $ext;
+                $ext_allowed = array("png", "jpeg", "jpg");
+                $localizado = "../upload/" . $imagem;
+                if (in_array($ext, $ext_allowed)) {
+                    if (move_uploaded_file($file_temp, $localizado)) {
+                        echo "entrei";
+                        $sql = "UPDATE Noticias SET titulo = '" . $titulo . "', descricao = '" . $descricao . "', sympla='" . $sympla . "', autor = '" . $autor . "', secoes = '" . $secoes . "', imagem = '" . $imagem . "', localizado = '" . $localizado . "' WHERE id=" . $id;
+                        echo  $sql;
+                        $db->exec($sql);
+                        header('Location: MudaNoticia.php?buscaNoticia=' . $busca . '&enviarnoticia=');
+                    };
+                } else {
+                    $dados["titulo"] = $_POST['titulo'];
+                    $dados["descricao"] = $_POST['descricao'];
+                    $dados["sympla"] = $_POST['sympla'];
+                    $dados["autor"] = $_POST['autor'];
+                    $dados["secoes"] = $_POST['secoes'];
+                    unset($_FILES["imagem"]);
+                    echo "Formato de arquivo de imagem inválido";
+                };
+            } else {
+                $sql = "UPDATE Noticias SET titulo = '" . $titulo . "', descricao = '" . $descricao . "', sympla='" . $sympla . "', autor = '" . $autor . "', secoes = '" . $secoes . "' WHERE id=" . $id;
+                echo $sql;
+                $db->exec($sql);
+                //   $db->close();
+                header('Location: MudaNoticia.php?buscaNoticia=' . $busca . '&enviarnoticia=');
+            }
         } else {
             echo "Título, Descrição e Autor não podem estar vazio";
-            $dados["titulo"] = $_GET['titulo'];
-            $dados["descricao"] = $_GET['descricao'];
-            $dados["sympla"] = $_GET['sympla'];
-            $dados["autor"] = $_GET['autor'];
-            $dados["secoes"] = $_GET['secoes'];
+            $dados["titulo"] = $_POST['titulo'];
+            $dados["descricao"] = $_POST['descricao'];
+            $dados["sympla"] = $_POST['sympla'];
+            $dados["autor"] = $_POST['autor'];
+            $dados["secoes"] = $_POST['secoes'];
+            unset($_FILES["imagem"]);
         };
     } else {
         if ($_GET["fazer"] === "modificar") {
@@ -79,11 +106,18 @@
         };
     };
     ?>
+    <div>
+        <form action="./MudaNoticia.php">
+            <input type="hidden" name="buscaNoticia" value="<?php echo $busca ?>">
+            <input type="hidden" name="enviarnoticia" value="">
+            <button type="submit" class="btn btn-primary voltarbutton">Voltar</button>
+        </form>
+    </div>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Modificar Noticias</h2>
     </div>
     <div class="artigo_texto">
-        <form action="" method="GET" class="form-container">
+        <form action="" enctype="multipart/form-data" method="POST" class="form-container">
             <input type="hidden" name="busca" value="<?php echo $busca; ?>">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <ul>
@@ -106,6 +140,11 @@
                     <label for="autor">Autor</label>
                     <textarea onkeyup="ajusta_texto(this)" name="autor" value="<?php echo $dados['autor']; ?>"><?php echo $dados['autor']; ?></textarea>
                     <span>Coloque o nome do Autor</span>
+                </li>
+                <li>
+                    <label for="imagem">Imagem</label>
+                    <input type="file" name="imagem" value="<?php echo $imagem; ?>">
+                    <span>Escolha o arquivo de imagem apenas permitidos (png, jpeg, jpg)</span>
                 </li>
                 <li>
                     <label for="secoes">Seções</label>

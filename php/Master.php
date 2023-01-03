@@ -53,7 +53,7 @@
                 <div id="AdicionarNoticias" class="collapse" role="tabpanel" style="height: 0px;">
                     <div class="painel-body">
                         <div class="artigo_texto">
-                            <form action="" method="post" class="form-container">
+                            <form action="" method="post" class="form-container" enctype="multipart/form-data">
                                 <ul>
                                     <li>
                                         <label for="titulo">Título</label>
@@ -74,6 +74,11 @@
                                         <label for="autor">Autor</label>
                                         <textarea onkeyup="ajusta_texto(this)" name="autor" value="<?php echo $autor; ?>"><?php echo $autor; ?></textarea>
                                         <span>Coloque o nome do Autor</span>
+                                    </li>
+                                    <li>
+                                        <label for="imagem">Imagem</label>
+                                        <input type="file" name="imagem" value="<?php echo $imagem; ?>">
+                                        <span>Escolha o arquivo de imagem apenas permitidos (png, jpeg, jpg)</span>
                                     </li>
                                     <li>
                                         <label for="secoes">Seções</label>
@@ -136,14 +141,14 @@
                 <div class="painel-heading">
                     <h4 class="painel-title Menu-titulo">
                         <a href="./MudaNoticia.php" class="collapsed">
-                            MODIFICAR|EXCLUIR NOTICIA
+                            MODIFICAR | EXCLUIR NOTICIA
                         </a>
                     </h4>
                 </div>
                 <div class="painel-heading">
                     <h4 class="painel-title Menu-titulo">
                         <a href="./MudaConta.php" class="collapsed">
-                            MODIFICAR|EXCLUIR CONTA
+                            MODIFICAR | EXCLUIR CONTA
                         </a>
                     </h4>
                 </div>

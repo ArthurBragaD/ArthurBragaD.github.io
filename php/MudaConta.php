@@ -50,6 +50,11 @@
         $num = 0;
     };
     ?>
+    <div>
+        <form action="./Master.php">
+            <button type="submit" class="btn btn-primary voltarbutton" >Voltar</button>
+        </form>
+    </div>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Modifica|Exclui Contas</h2>
     </div>

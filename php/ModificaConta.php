@@ -37,9 +37,9 @@
     ?>
     <?php
     // Deletar Conta
-    $busca = $_POST["busca"];
-    if ($_POST["fazer"] === "excluir") {
-        $cpf = $_POST["cpf"];
+    $busca = $_GET["busca"];
+    if ($_GET["fazer"] === "excluir") {
+        $cpf = $_GET["cpf"];
         $db = new SQLite3('../db/userData.db');
         $sql = "DELETE FROM Funcionarios WHERE cpf =" . $cpf;
         $db->exec($sql);
@@ -75,11 +75,11 @@
                 $dados["email"] = "";
                 $dados["nomeReal"] = $_POST['nomeReal'];
                 $dados["senha"] = $_POST['senha'];
-            }else{
-            $sql = "UPDATE Funcionarios SET user = '" . $user . "', email = '" . $email . "', nomeReal = '" . $nomeReal . "', senha = '" . $senha . "' WHERE cpf=" . $cpf;
-            $db->exec($sql);
-              $db->close();
-            header('Location: MudaConta.php?buscaConta=' . $busca . '&enviarConta=');
+            } else {
+                $sql = "UPDATE Funcionarios SET user = '" . $user . "', email = '" . $email . "', nomeReal = '" . $nomeReal . "', senha = '" . $senha . "' WHERE cpf=" . $cpf;
+                $db->exec($sql);
+                $db->close();
+                header('Location: MudaConta.php?buscaConta=' . $busca . '&enviarConta=');
             };
         } else {
             echo "Título, Descrição e nomeReal não podem estar vazio";
@@ -99,6 +99,13 @@
         };
     };
     ?>
+    <div>
+        <form action="./MudaConta.php">
+            <input type="hidden" name="buscaConta" value="<?php echo $busca ?>">
+            <input type="hidden" name="enviarConta" value="">
+            <button type="submit" class="btn btn-primary voltarbutton">Voltar</button>
+        </form>
+    </div>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Modificar Conta</h2>
     </div>

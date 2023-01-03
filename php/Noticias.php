@@ -38,9 +38,9 @@
             ?>
                 <article class="conteudo-lista-item clearfix">
                     <header>
-                        <figure class="pull-left hidden-xs">
+                        <figure class="pull-left hidden-xs containerimagem">
                             <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>" target="_self">
-                                <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
+                                <img class="resultado-pesquisa-img" src="<?php echo $dados["localizado"]; ?>">
                             </a>
                         </figure>
                         <time class="conteudo-lista-item-datahora" datetime="">
@@ -51,7 +51,7 @@
                         </h2>
                     </header>
                     <p class="hidden-xs">
-                        Descrição: <?php echo $dados["descricao"]; ?>
+                        Descrição: <?php echo substr($dados["descricao"], 0, 250); ?> ...
                     </p>
                 </article>
             <?php endwhile; ?>

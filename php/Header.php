@@ -15,7 +15,7 @@
 <div id="hotbar-menu-wrap " class="hotbar-container ">
     <ul class="hotbar-menu ">
         <li class="hotbar-logo ">
-            <a href="/php/Index.php"><i class="bi-house-door-fill ">| Ínicio</i></a>
+            <a href="/php/Index.php"><i class="bi-house-door-fill ">| Início</i></a>
         </li>
         <li class="hotbar-item ">
             <a href="/php/Login.php ">Login</a>

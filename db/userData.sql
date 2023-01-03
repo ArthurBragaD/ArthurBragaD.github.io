@@ -22,6 +22,7 @@ CREATE TABLE Noticias(
     sympla TEXT,
     secoes TEXT,
     imagem BLOB,
+    localizado TEXT,
     PRIMARY KEY (id)
     );
 
@@ -30,6 +31,6 @@ INSERT INTO Funcionarios VALUES ("a","aa","a","a","11111111111");
 
 SELECT * FROM FUNCIONARIOS;
 
-INSERT INTO Noticias (titulo,descricao,hora,autor,sympla,secoes,imagem) VALUES ("Teatro municipal esta disponibilizando entrada gratuita nesse sabado.","Teatro municipal esta disponibilizando entrada gratuita nesse sabado. Teatro municipal esta disponibilizando entrada gratuita nesse sabado.",CURRENT_DATE,"teste","teste","teste","teste.png");
+INSERT INTO Noticias (titulo,descricao,hora,autor,sympla,secoes,imagem,localizado) VALUES ("Teatro municipal esta disponibilizando entrada gratuita nesse sabado.","Teatro municipal esta disponibilizando entrada gratuita nesse sabado. Teatro municipal esta disponibilizando entrada gratuita nesse sabado.",CURRENT_DATE,"teste","teste","teste",'DesignPlaceHolder.png','../upload/DesignPlaceholder.png');
 
 SELECT * FROM Noticias;
