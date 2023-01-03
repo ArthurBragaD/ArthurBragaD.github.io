@@ -157,7 +157,7 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary Logout-button"><a href="Logout.php" style="text-decoration: none; color: white;">Logout</a></button>
+    <a href="Logout.php" style="text-decoration: none; color: white;"><button type="submit" class="btn btn-primary Logout-button">Logout</button></a>
 </body>
 
 </html>

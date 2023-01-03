@@ -52,7 +52,7 @@
     ?>
     <div>
         <form action="./Master.php">
-            <button type="submit" class="btn btn-primary voltarbutton" >Voltar</button>
+            <button type="submit" class="btn btn-primary voltarbutton">Voltar</button>
         </form>
     </div>
     <div class="titulo-container">
@@ -72,7 +72,7 @@
                 <p>A busca pelo termo "<?php echo $buscaConta; ?>" encontrou <?php echo $num; ?> resultados.</p>
             </div>
         </form>
-        <table class="table">
+        <table class="table" style="margin-bottom: 5%;">
             <thead>
                 <tr>
                     <th style="width: 30%;">Username</th>
@@ -109,8 +109,6 @@
             </tbody>
         </table>
     </div>
-
-    <button type="submit" class="btn btn-primary Logout-button"><a href="Logout.php" style="text-decoration: none; color: white;">Logout</a></button>
 </body>
 
 </html>

@@ -23,7 +23,9 @@ a {
 }
 
 .conteudo-lista-item {
-    width: 45%;
+    width: 40%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 
 .containerimagem {
@@ -42,7 +44,7 @@ a {
     border-radius: 0;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    margin-inline-start: 40px;
+    margin-inline-start: 20px;
     margin-inline-end: 40px;
     position: relative;
     margin-right: 16px;

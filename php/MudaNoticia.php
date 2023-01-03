@@ -92,7 +92,7 @@
                                 <?php echo $dados["hora"]; ?>
                             </time></td>
                         <td>
-                            <form method="GET" action="./ModificaNoticia.php" >
+                            <form method="GET" action="./ModificaNoticia.php">
                                 <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
                                 <input type="hidden" name="busca" value="<?php echo $buscaNoticia; ?>">
                                 <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
@@ -111,8 +111,6 @@
             </tbody>
         </table>
     </div>
-
-    <button type="submit" class="btn btn-primary Logout-button"><a href="Logout.php" style="text-decoration: none; color: white;">Logout</a></button>
 </body>
 
 </html>

@@ -134,7 +134,7 @@
                             <header>
                                 <figure class="pull-left hidden-xs">
                                     <a href="./Noticia.php?noticia=<?php echo $dados["id"]; ?>">
-                                        <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
+                                        <img class="resultado-pesquisa-img" src="<?php echo $dados["localizado"]; ?>">
                                     </a>
                                 </figure>
                                 <time class="conteudo-lista__item__datahora" datetime="">
