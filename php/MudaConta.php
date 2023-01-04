@@ -30,11 +30,7 @@
         }
     </script>
     <?php include "./Header.php"; ?>
-    <?php
-    session_start();
-    if (!isset($_SESSION["currentUserName"])) header('Location: Login.php');
-    // echo $_SESSION["loggedIn"] . "<br>" . $_SESSION["startTime"] . "<br>" . $_SESSION["currentUserName"];
-    ?>
+    <?php include "./Rememberme.php"; ?>
     <?php
     if (isset($_GET["enviarConta"])) {
         $buscaConta = $_GET["buscaConta"];
