@@ -77,6 +77,8 @@ body {
     /* top: 0;
     left: 0; */
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .hotbar-menu {
@@ -85,10 +87,24 @@ body {
     margin-right: 60px;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* padding: 20px; */
 }
 
 .hotbar-item {
-    display: inline;
+    flex-direction: row;
+}
+
+.hotbar-icon a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: solid;
+    font-weight: bold;
+    float: right
 }
 
 .hotbar-item a {
