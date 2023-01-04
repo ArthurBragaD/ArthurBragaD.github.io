@@ -56,10 +56,10 @@
                             </strong><?php echo $dados["hora"]; ?></p>
                     </div>
                 </div>
-                <div class="ver-mais-button"><button class="btn btn-primary">Ver Mais Noticias</button></div>
+                <div class="ver-mais-button"><a href="./VermaisNoticias.php"><button class="btn btn-primary">Ver Mais Noticias</button></a>
+                </div>
             </div>
-    </div>
-    </section>
+        </section>
     </div>
     <?php include "./Footer.php"; ?>
 

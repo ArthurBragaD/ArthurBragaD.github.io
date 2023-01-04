@@ -75,7 +75,8 @@
             </article> -->
         </div>
     </div>
-    <div class="ver-mais-button"><button class="btn btn-primary">Ver Mais Noticias</button></div>
+    <div class="ver-mais-button"><a href="./VermaisNoticias.php"><button class="btn btn-primary">Ver Mais Noticias</button></a>
+    </div>
     </div>
     <?php include "./Footer.php"; ?>
 

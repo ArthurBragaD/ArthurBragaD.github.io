@@ -12,8 +12,6 @@ Progresso Atual:
 
 - NOTICIAS em geral
 | Arrumar as secoes // fazer hoje 
-- Login
-| Arrumar o lembre-se de mim // fazer hoje 
 - Ver Mais Noticias
 | Aba nova //fazer hoje
 
@@ -21,6 +19,7 @@ Progresso Atual:
 Pronto:
 - EQUIPAMENTOS
 - Contate-nos
-
+- Login
+- Ver mais Noticias
 
 //<?php echo substr($dados["titulo"],0,10); ?>
