@@ -1,9 +1,3 @@
-<?php
-// if (!isset($_SESSION["currentUserName"])) session_start();
-// if (isset($_SESSION["lifeTime"]) && (time() - $_SESSION["startTime"] > $_SESSION["lifeTime"])) {
-    //     session_destroy();
-    // }
-    ?>
 <div class="header-container">
     <form class="pesquisar-container" action="Pesquisa.php" method="GET">
         <input class="pesquisar-style" type="text" placeholder="Pesquisar..." name="pesquisa">

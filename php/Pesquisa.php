@@ -98,10 +98,8 @@
         </div>
         <div class="resultado-container">
             <div class="resultado-secoes-container">
-                <div>
                     <h4 class="secoes-title"> Nas Seções:
                     </h4>
-                </div>
                 <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
                 <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
                 <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>

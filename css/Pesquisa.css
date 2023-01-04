@@ -9,6 +9,7 @@
 
 .resultado-secoes-container {
     width: 25%;
+    height: fit-content;
     background-color: #ddd;
     border-radius: 25px;
     border: 2px solid #000000;

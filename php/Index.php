@@ -30,7 +30,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class=".d-block .img-fluid tamanho-img-carrossel" src="/Imagens/imagem2.jpg" alt="First slide">
+                    <img class=".d-block .img-fluid tamanho-img-carrossel" src="/Imagens/Banner2000x500.png" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>...</h5>
                         <p>...</p>
