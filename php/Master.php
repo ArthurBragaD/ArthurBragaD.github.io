@@ -30,6 +30,7 @@
     </script>
     <?php include "./Header.php"; ?>
     <?php include "./Rememberme.php"; ?>
+    <?php include "./CatalogarCarrousel.php"; ?>
     <?php include "./CatalogarNoticia.php"; ?>
     <?php include "./CatalogarSenha.php"; ?>
     <div class="titulo-container">
@@ -91,6 +92,46 @@
                 </div>
                 <div class="painel-heading">
                     <h4 class="painel-title Menu-titulo">
+                        <a data-toggle="collapse" href="#AdicionarCarrousel" role="tab" class="collapsed">
+                            ADICIONAR BANNER CARROSSEL
+                        </a>
+                    </h4>
+                </div>
+                <div id="AdicionarCarrousel" class="collapse" role="tabpanel" style="height: 0px;">
+                    <div class="painel-body">
+                        <div class="artigo_texto">
+                            <form action="" method="post" class="form-container" enctype="multipart/form-data">
+                                <ul>
+                                    <li>
+                                        <label for="titulo">Título</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="titulo" value="<?php echo $titulo; ?>"><?php echo $titulo; ?></textarea>
+                                        <span>Coloque o Título do Banner se tiver</span>
+                                    </li>
+                                    <li>
+                                        <label for="descricao">Descrição</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="descricao" value="<?php echo $descricao; ?>"><?php echo $descricao; ?></textarea>
+                                        <span>Coloque a descrição do Banner se tiver</span>
+                                    </li>
+                                    <li>
+                                        <label for="link">Link</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="link" value="<?php echo $link; ?>"><?php echo $link; ?></textarea>
+                                        <span>Coloque o link como (Ex: https://www.sympla.com.br)</span>
+                                    </li>
+                                    <li>
+                                        <label for="imagem">Imagem</label>
+                                        <input type="file" name="imagem" value="<?php echo $imagem; ?>">
+                                        <span>Escolha o arquivo de imagem apenas permitidos (png, jpeg, jpg)</span>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn btn-primary" name="enviarcarrousel">Enviar</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
                         <a data-toggle="collapse" href="#AdicionarConta" role="tab" class="collapsed">
                             ADICIONAR CONTA
                         </a>
@@ -138,6 +179,13 @@
                     <h4 class="painel-title Menu-titulo">
                         <a href="./MudaNoticia.php" class="collapsed">
                             MODIFICAR | EXCLUIR NOTICIA
+                        </a>
+                    </h4>
+                </div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
+                        <a href="./MudaCarrousel.php" class="collapsed">
+                            MODIFICAR | EXCLUIR BANNER CARROUSSEL
                         </a>
                     </h4>
                 </div>

@@ -3,15 +3,16 @@ Link: ArthurBragaD.github.io/Index.html
 Progresso Atual:
 
 - MASTER
-| Modificar o carrosel
+| Modificar o carrosel / hoje
+- Inicio
+|carrousel / hoje
+| noticias 5 mais novas /hoje
+| Compra no sympla 
+
 
 - Editais
 | Falar com o victor para arrumarmos juntos
 
-- Inicio
-|carrousel
-| noticias 5 mais novas
-| Compra no sympla 
 
 - NOTICIAS em geral
 | Arrumar as secoes
