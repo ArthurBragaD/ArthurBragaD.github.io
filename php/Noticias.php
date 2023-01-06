@@ -55,24 +55,6 @@
                     </p>
                 </article>
             <?php endwhile; ?>
-            <!-- <article class="conteudo-lista-item clearfix">
-                <header>
-                    <figure class="pull-left hidden-xs">
-                        <a href="" target="_self">
-                            <img class="resultado-pesquisa-img" src="/Imagens/Design sem nome (1).png">
-                        </a>
-                    </figure>
-                    <time class="conteudo-lista-item-datahora" datetime="">
-                        00/00/0000-00h00min
-                    </time>
-                    <h2 class="conteudo-lista-item-titulo">
-                        <a href="" target="_self" title="Leia na íntegra.">Titulo da noticia</a>
-                    </h2>
-                </header>
-                <p class="hidden-xs">
-                    Descrição: Teste
-                </p>
-            </article> -->
         </div>
     </div>
     <div class="ver-mais-button"><a href="./VermaisNoticias.php"><button class="btn btn-primary">Ver Mais Noticias</button></a>

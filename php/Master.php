@@ -80,7 +80,7 @@
                                     <li>
                                         <label for="secoes">Seções</label>
                                         <textarea onkeyup="ajusta_texto(this)" name="secoes" value="<?php echo $secoes; ?>"><?php echo $secoes; ?></textarea>
-                                        <span>Coloque as seções</span>
+                                        <span>Coloque as seções (Ex: Teatro,Evento) **Adicionar "," após seção</span>
                                     </li>
                                     <li>
                                         <button type="submit" class="btn btn-primary" name="enviarnoticia">Enviar</button>

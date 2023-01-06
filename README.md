@@ -2,13 +2,10 @@
 Link: ArthurBragaD.github.io/Index.html
 Progresso Atual:
 
-- MASTER
-| Modificar o carrosel / hoje
-- Inicio
-|carrousel / hoje
-| noticias 5 mais novas /hoje
+-Inicio
 | Compra no sympla 
-
+-Noticia
+| Botoes de secoes
 
 - Editais
 | Falar com o victor para arrumarmos juntos
@@ -22,5 +19,6 @@ Pronto:
 - Contate-nos
 - Login
 - Ver mais Noticias
+- Master
 
 //<?php echo substr($dados["titulo"],0,10); ?>

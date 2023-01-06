@@ -38,7 +38,7 @@
     //Link com o DB 
     $db = new SQLite3('../db/userData.db');
     // Numero de noticias encontradas
-    $sql2 = "SELECT DISTINCT * FROM Noticias WHERE (" . $buscaData . " titulo LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro;
+    $sql2 = "SELECT DISTINCT * FROM Noticias WHERE (" . $buscaData . " titulo LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " autor LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " secoes LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro;
     $conta = $db->query($sql2);
     //Contando o numero de noticias aparecendo
     $num = 0;
@@ -78,8 +78,23 @@
         $filtro = $_GET["filtro"];
     };
     //Contato com o DB e Pesquisa
-    $sql1 = "SELECT DISTINCT * FROM Noticias WHERE (" . $buscaData . " titulo LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro . " LIMIT 10 OFFSET " . $limite;
+    $sql1 = "SELECT DISTINCT * FROM Noticias WHERE (" . $buscaData . " titulo LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " autor LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " secoes LIKE '%" . $pesquisa . "%') OR (" . $buscaData . " descricao LIKE '%" . $pesquisa . "%') ORDER BY id " . $filtro . " LIMIT 10 OFFSET " . $limite;
     $noticia = $db->query($sql1);
+    //Seçoes
+    $secao = [];
+    while ($nasecoes = $noticia->fetchArray(SQLITE3_ASSOC)) {
+        $i = explode(",", $nasecoes["secoes"]);
+        $i1 = 0;
+        if (sizeof($i) > 0 && $i[0] != "") {
+            // echo "entrei";
+            while ($i1 != sizeof($i)) {
+                if (!in_array(strtoupper($i[$i1]), $secao)) {
+                    array_push($secao, strtoupper($i[$i1]));
+                }
+                $i1++;
+            }
+        }
+    }
     // Correção do Exibindo 
     if ($num === 0) {
         $numi = 0;
@@ -98,11 +113,23 @@
         </div>
         <div class="resultado-container">
             <div class="resultado-secoes-container">
-                    <h4 class="secoes-title"> Nas Seções:
-                    </h4>
-                <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
-                <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
-                <div class="secoes-dados"><a href="" class="secoes-dados-style">Dados (0)</a></div>
+                <h4 class="secoes-title"><strong> Nas Seções: </strong>
+                </h4>
+                <?php
+                if (sizeof($secao) > 0 && $secao[0] != "") :
+                    $a = 0;
+                    while ($a != sizeof($secao)) :
+                ?>
+                        <div class="secoes-dados">
+                            <form class="secoes-dados-style" method="GET" action="">
+                                <input type="hidden" name="pesquisa" value="<?php echo $secao[$a] ?>">
+                                <input type="submit" class="secoes-busca" value="<?php echo $secao[$a] ?>">
+                            </form>
+                        </div>
+                <?php
+                        $a++;
+                    endwhile;
+                endif; ?>
             </div>
             <div class="resultado-pesquisa-container">
                 <div class="filtro-container">
