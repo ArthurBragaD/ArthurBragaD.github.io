@@ -29,8 +29,6 @@ CREATE TABLE Noticias(
     );
     CREATE TABLE Carrousel(
     id INTEGER NOT NULL,
-    titulo TEXT NOT NULL,
-    descricao TEXT NOT NULL,
     link TEXT,
     imagem BLOB,
     localizado TEXT,
@@ -39,6 +37,7 @@ CREATE TABLE Noticias(
 
 
 INSERT INTO Funcionarios VALUES ("arthur","arthurbragadutra@gmail.com","arthur","arthur braga dutra","05204074074");
+INSERT INTO Carrousel (link,imagem,localizado) VALUES ("",'Banner2000x500.png','../upload/Banner2000x500.png');
 
 SELECT * FROM FUNCIONARIOS;
 

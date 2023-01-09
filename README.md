@@ -2,17 +2,17 @@
 Link: ArthurBragaD.github.io/Index.html
 Progresso Atual:
 
+
+-MUDAR FONT
+-MUDAR SELECIONAVEL EDITAl
+
+
 -Inicio
-| Compra no sympla 
--Noticia
-| Botoes de secoes
+| Compra no sympla - Pesquisar 
+
 
 - Editais
 | Falar com o victor para arrumarmos juntos
-
-
-- NOTICIAS em geral
-| Arrumar as secoes
 
 Pronto:
 - EQUIPAMENTOS

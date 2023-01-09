@@ -40,14 +40,12 @@
         $sql = "DELETE FROM Carrousel WHERE id =" . $id;
         $db->exec($sql);
         $db->close();
-        header('Location: MudaCarrousel.php?buscaCarrousel=' . $busca . '&enviarcarrousel=');
+        header('Location: MudaCarrousel.php');
     };
     if (isset($_POST["atualizar"])) {
         if ($_FILES["imagem"]["size"] != 0) {
             $db = new SQLite3('../db/userData.db');
             $id =  $_POST["id"];
-            $titulo = $_POST["titulo"];
-            $descricao = $_POST["descricao"];
             $link = $_POST["link"];
             $file_name = $_FILES['imagem']['name'];
             $file_temp = $_FILES['imagem']['tmp_name'];
@@ -58,34 +56,26 @@
             $localizado = "../upload/" . $imagem;
             if (in_array($ext, $ext_allowed)) {
                 if (move_uploaded_file($file_temp, $localizado)) {
-                    $sql = "UPDATE Carrousel SET titulo = '" . $titulo . "', descricao = '" . $descricao . "', link = '" . $link . "', imagem = '" . $imagem . "', localizado = '" . $localizado . "' WHERE id=" . $id;
+                    $sql = "UPDATE Carrousel SET link = '" . $link . "', imagem = '" . $imagem . "', localizado = '" . $localizado . "' WHERE id=" . $id;
                     $db->exec($sql);
-                    $titulo = "";
-                    $descricao = "";
                     $link = "";
                     unset($_FILES["imagem"]);
-                    header('Location: MudaCarrousel.php?buscaCarrousel=' . $busca . '&enviarcarrousel=');
+                    header('Location: MudaCarrousel.php');
                 }
             } else {
                 echo "Formato de arquivo de imagem inválido";
-                $dados["titulo"] = $_POST["titulo"];
-                $dados["descricao"] = $_POST["descricao"];
                 $dados["link"] = $_POST["link"];
                 unset($_FILES["imagem"]);
             }
         } else {
             $db = new SQLite3('../db/userData.db');
             $id =  $_POST["id"];
-            $titulo = $_POST["titulo"];
-            $descricao = $_POST["descricao"];
             $link = $_POST["link"];
-            $sql = "UPDATE Carrousel SET titulo = '" . $titulo . "', descricao = '" . $descricao . "', link='" . $link . "' WHERE id=" . $id;
+            $sql = "UPDATE Carrousel SET link='" . $link . "' WHERE id=" . $id;
             $db->exec($sql);
-            $titulo = "";
-            $descricao = "";
             $link = "";
             unset($_FILES["imagem"]);
-            header('Location: MudaCarrousel.php?buscaCarrousel=' . $busca . '&enviarcarrousel=');
+            header('Location: MudaCarrousel.php');
             echo "Banner do carrossel catalogado";
         };
     } else {
@@ -113,16 +103,6 @@
             <input type="hidden" name="busca" value="<?php echo $busca; ?>">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <ul>
-                <li>
-                    <label for="titulo">Título</label>
-                    <textarea onkeyup="ajusta_texto(this)" name="titulo" value="<?php echo $dados["titulo"]; ?>"><?php echo $dados["titulo"]; ?></textarea>
-                    <span>Coloque o Título do Banner Carrousel</span>
-                </li>
-                <li>
-                    <label for="descricao">Descrição</label>
-                    <textarea onkeyup="ajusta_texto(this)" name="descricao" value="<?php echo $dados["descricao"]; ?>"><?php echo $dados["descricao"]; ?></textarea>
-                    <span>Coloque a descrição do Banner Carrousel</span>
-                </li>
                 <li>
                     <label for="link">Link</label>
                     <textarea onkeyup="ajusta_texto(this)" name="link" value="<?php echo $dados["link"]; ?>"><?php echo $dados["link"]; ?></textarea>

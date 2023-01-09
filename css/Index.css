@@ -5,7 +5,7 @@
     margin-right: 40%;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
-    border: 1px solid #1A1E37;
+    /* border: 1px solid #1A1E37; */
     border-radius: 8px;
 }
 
@@ -72,4 +72,40 @@
     margin-top: 1.5%;
     margin-bottom: 2.5%;
     text-align: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 50px;
+    background-size: 100%, 100%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 60px;
+    color: #14172a;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 60px;
+    color: #14172a;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
+    color: #1A1E37;
+    text-decoration: none;
+    outline: 0;
+    opacity: 1;
 }

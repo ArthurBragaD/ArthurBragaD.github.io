@@ -17,19 +17,19 @@
             <a href=" ">Mapa Cultural</a>
         </li> -->
         <li class="hotbar-item ">
-            <a href="/php/Equipamentos.php ">Equipamentos</a>
+            <a href="/php/Equipamentos.php ">EQUIPAMENTOS</a>
         </li>
         <li class="hotbar-item ">
-            <a href="/php/Editais.php ">Editais</a>
+            <a href="/php/Editais.php ">EDITAIS</a>
         </li>
         <!-- <li class="hotbar-item ">
             <a href=" ">Pro-Cultura</a>
         </li> -->
         <li class="hotbar-item ">
-            <a href="/php/Noticias.php ">Noticias</a>
+            <a href="/php/Noticias.php ">NOTÍCIAS</a>
         </li>
         <li class="hotbar-item ">
-            <a href="/php/Contate.php ">Contate-nos</a>
+            <a href="/php/Contate.php ">CONTATO</a>
         </li>
         <!-- <li class="hotbar-item ">
             <a href="/php/Informacoes.php ">Informações</a>

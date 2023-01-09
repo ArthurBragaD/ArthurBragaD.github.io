@@ -32,49 +32,41 @@
                 <div class="editais-table-container">
                     <div class="painel-heading">
                         <h4 class="painel-title">
-                            <a data-toggle="collapse" href="#INFORMAÇÕES  DE CONTATO ESTRUTURA" role="tab" class="collapsed">
-                                ALDIR BLANC
+                            <a data-toggle="collapse" href="#INFORMAÇÕES DE CONTATO ESTRUTURA" role="tab" class="collapsed">
+                                Lei Aldir Blanc
                             </a>
                         </h4>
                     </div>
-                    <div id="INFORMAÇÕES  DE CONTATO ESTRUTURA" class="collapse" role="tabpanel" style="height: 0px;">
+                    <div id="INFORMAÇÕES DE CONTATO ESTRUTURA" class="collapse" role="tabpanel" style="height: 0px;">
                         <div class="painel-body">
                             <div class="artigo_texto">
                                 <div>
-                                    <p style="word-spacing:0px;"><span style="font-family:Cambria, serif;color:#000000;">A Lei nº 14.017, de 29 de
-                                            junho de 2020, conhecida como Lei de Emergência Cultural Aldir Blanc, foi
-                                            criada com o intuito de promover ações para garantir uma renda emergencial
-                                            para trabalhadores e trabalhadoras da Cultura, e manutenção dos espaços
-                                            culturais brasileiros durante o período de pandemia do Covid‐19, reconhecido
-                                            pelo Decreto Legislativo nº 6, de 30 de março de 2020.<br><br>
-
-                                            No Município de Rio Grande, o recurso da Lei será de R$ 1.406.352,14. O
-                                            repasse será realizado através do Fundo Municipal de Cultura e será gerido
-                                            pela Prefeitura Municipal do Rio Grande, através da Secretaria de Município
-                                            da Cultura. Para a gestão desse recurso e elaboração dos editais, foi criado
-                                            um Comitê Gestor, composto paritariamente pelo poder público e a sociedade
-                                            civil.<br><br>
-
-                                            O Decreto Municipal nº 17.470 de 22 de setembro de 2020 que regulamenta a
-                                            aplicação da Lei Aldir Blanc no Município, nos incisos II e III do Art.2º,
-                                            foi aprovado na V Conferência Municipal de Cultura, realizada no dia 05 de
-                                            setembro, com ampla participação da comunidade.<br><br>
-
-                                            O Conselho Municipal de Política Cultural-CMPC tem exercido um papel
-                                            importantíssimo no diálogo com os segmentos, por meio de fóruns e encontros
-                                            setoriais, garantindo dessa forma a transparência e a horizontalidade deste
-                                            processo.<br>
-
+                                    <p style="word-spacing:0px;"><strong><span style="font-family:Cambria, serif;color:#000000;">Informações e dúvidas no e-mail:
+                                            </span></strong>aldirblancrg@gmail.com</p>
+                                    <p style="word-spacing:0px;"><span style="font-family:Cambria, serif;color:#000000;">
                                             <p style="word-spacing:0px;"><span style="font-family:Cambria, serif;color:#000000;"><strong>Acompanhe aqui as atualizações e acesse os editais:
                                                 </span></strong>
                                             </p>
-                                            <p style="word-spacing:0px;"><strong><span style="font-family:Cambria, serif;color:#000000;">Informações e dúvidas no e-mail:
-                                                    </span></strong>aldirblancrg@gmail.com</p>
+                                            <div class="painel-heading">
+                                                <h4 class="painel-title">
+                                                    <a data-toggle="collapse" href="#CHAMADA PÚBLICA Nº01/2020" role="tab" class="collapsed">
+                                                        CHAMADA PÚBLICA Nº01/2020
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="CHAMADA PÚBLICA Nº01/2020" class="collapse" role="tabpanel" style="height: 0px;">
+                                                <div class="painel-body">
+                                                    <div class="artigo_texto">
+                                                        <p>TESTE</p>
+                                                        <p>TESTE</p>
+                                                        <p>TESTE</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </div>
     </div>

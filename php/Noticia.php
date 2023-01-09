@@ -29,12 +29,28 @@
     $sql = "SELECT * FROM Noticias WHERE id = " . $id;
     $noticia = $db->query($sql);
     $dados = $noticia->fetchArray(SQLITE3_ASSOC);
-    // var_dump($noticia->fetchArray(SQLITE3_ASSOC));
+    $secoes = explode(",", $dados["secoes"]);
     ?>
     <div class="noticia-container">
         <section class="noticia-table">
             <div class="painel-body">
                 <h2 class="noticia-titulo"><?php echo $dados["titulo"]; ?></h2>
+                <?php if (sizeof($secoes) > 0 && $secoes[0] != "") : ?>
+                    <p style="word-spacing:0px; margin-left: 5%;"><strong>Nas seções:
+                        </strong></p>
+                    <div class="secoes-container">
+                        <?php
+                        $i = 0;
+                        while ($i != sizeof($secoes)) :
+                        ?>
+                            <form action="Pesquisa.php" method="GET" class="secoes-form">
+                                <input type="hidden" name="pesquisa" value="<?php echo $secoes[$i]; ?>">
+                                <button type="submit" class="btn secoes-button"><?php echo strtoupper($secoes[$i]); ?></button>
+                            </form>
+                        <?php $i++;
+                        endwhile; ?>
+                    </div>
+                <?php endif; ?>
                 <p style="word-spacing:0px; text-align: right;; margin-right: 5%"><strong>Escrito por:
                     </strong><?php echo $dados["autor"]; ?></p>
                 <div class="containerimagem">

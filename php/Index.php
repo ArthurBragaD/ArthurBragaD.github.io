@@ -80,10 +80,10 @@
                 ?>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
+                    <span class="sr-only" style="color: #14172a; font-weight: bolder; font-size: larger;">Anterior</span>
                 </a>
                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="sr-only" style="background-color: black;color: white;">Próximo</span>
+                    <span class="sr-only" style="color: #14172a; font-weight: bolder; font-size: larger;">Próximo</span>
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </a>
             </div>

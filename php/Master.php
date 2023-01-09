@@ -103,16 +103,6 @@
                             <form action="" method="post" class="form-container" enctype="multipart/form-data">
                                 <ul>
                                     <li>
-                                        <label for="titulo">Título</label>
-                                        <textarea onkeyup="ajusta_texto(this)" name="titulo" value="<?php echo $titulo; ?>"><?php echo $titulo; ?></textarea>
-                                        <span>Coloque o Título do Banner se tiver</span>
-                                    </li>
-                                    <li>
-                                        <label for="descricao">Descrição</label>
-                                        <textarea onkeyup="ajusta_texto(this)" name="descricao" value="<?php echo $descricao; ?>"><?php echo $descricao; ?></textarea>
-                                        <span>Coloque a descrição do Banner se tiver</span>
-                                    </li>
-                                    <li>
                                         <label for="link">Link</label>
                                         <textarea onkeyup="ajusta_texto(this)" name="link" value="<?php echo $link; ?>"><?php echo $link; ?></textarea>
                                         <span>Coloque o link como (Ex: https://www.sympla.com.br)</span>
