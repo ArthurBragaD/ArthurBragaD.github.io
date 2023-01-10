@@ -5,6 +5,10 @@ SELECT * FROM Noticias;
 DROP TABLE IF EXISTS Noticias;
 SELECT * FROM Carrousel;
 DROP TABLE IF EXISTS Carrousel;
+SELECT * FROM Edital;
+DROP TABLE IF EXISTS Edital;
+SELECT * FROM EditalArquivos;
+DROP TABLE IF EXISTS EditalArquivos;
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE Funcionarios (
@@ -33,6 +37,23 @@ CREATE TABLE Noticias(
     imagem BLOB,
     localizado TEXT,
     PRIMARY KEY (id)
+    );
+
+    CREATE TABLE Edital(
+    idEdital INTEGER NOT NULL,
+    edital TEXT NOT NULL,
+    PRIMARY KEY(idEdital)
+    );
+     CREATE TABLE EditalArquivos(
+    idArquivo INTEGER NOT NULL,
+    nome TEXT NOT NULL,
+    hora TEXT NOT NULL,
+    tipo TEXT NOT NULL,
+    arquivo BLOB NOT NULL,
+    localizado TEXT NOT NULL,
+    editalRelacionado INTEGER NOT NULL,
+    PRIMARY KEY (idArquivo),
+    FOREIGN KEY (editalRelacionado) REFERENCES Edital(idEdital)
     );
 
 

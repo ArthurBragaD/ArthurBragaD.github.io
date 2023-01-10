@@ -32,10 +32,9 @@
     <?php include "./Header.php"; ?>
     <?php include "./Rememberme.php"; ?>
     <?php
-        $db = new SQLite3('../db/userData.db');
-        $sql = "SELECT DISTINCT * FROM Carrousel ORDER BY id DESC";
-        $contando = $db->query($sql);
-        $carrousel = $db->query($sql);
+    $db = new SQLite3('../db/userData.db');
+    $sql = "SELECT DISTINCT * FROM Edital ORDER BY idEdital DESC";
+    $edital = $db->query($sql);
     ?>
     <div>
         <form action="./Master.php">
@@ -43,31 +42,44 @@
         </form>
     </div>
     <div class="titulo-container">
-        <h2 class="titulo-conteudo">Modifica|Exclui Banner Carroussel</h2>
+        <h2 class="titulo-conteudo">Modifica|Exclui Edital</h2>
     </div>
     <div class="table-container">
         <table class="table">
             <thead>
                 <tr>
-                    <th style="width: 30%;">Link</th>
-                    <th style="width: 60%;">Imagem</th>
-                    <th style="width: 10%;" colspan="2"> Botões</th>
+                    <th style="width: 20%;">Edital</th>
+                    <th style="width: 20%;">Adicionar Arquivos</th>
+                    <th style="width: 20%;">Modificar Arquivos</th>
+                    <th style="width: 20%;">Modificar Edital</th>
+                    <th style="width: 20%;">Excluir</th>
                 </tr>
             </thead>
             <tbody>
-                <?php while ($dados = $carrousel->fetchArray(SQLITE3_ASSOC)) : ?>
+                <?php while ($dados = $edital->fetchArray(SQLITE3_ASSOC)) : ?>
                     <tr>
-                        <td><?php echo $dados["link"]; ?></td>
-                        <td><img src="<?php echo $dados["localizado"];?>" class="BannerImg"></td>
+                        <td><?php echo $dados["edital"]; ?></td>
                         <td>
-                            <form method="GET" action="./ModificaCarrousel.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
+                            <form method="GET" action="./AdicionaEditalArquivo.php">
+                                <input type="hidden" name="id" value="<?php echo $dados["idEdital"]; ?>">
+                                <button type="submit" name="fazer" class="botao-adiciona rounded-circle bi bi-pencil-fill"></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="GET" action="./MudaEditalArquivo.php">
+                                <input type="hidden" name="id" value="<?php echo $dados["idEdital"]; ?>">
                                 <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
                             </form>
                         </td>
                         <td>
-                            <form method="GET" action="./ModificaCarrousel.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
+                            <form method="GET" action="./ModificaEdital.php">
+                                <input type="hidden" name="id" value="<?php echo $dados["idEdital"]; ?>">
+                                <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="GET" action="./ModificaEdital.php">
+                                <input type="hidden" name="id" value="<?php echo $dados["idEdital"]; ?>">
                                 <button type="submit" name="fazer" value="excluir" class="botao-deleta rounded-circle bi bi-trash-fill"></button>
                             </form>
                         </td>

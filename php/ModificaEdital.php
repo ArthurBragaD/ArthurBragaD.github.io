@@ -32,51 +32,60 @@
     <?php include "./Header.php"; ?>
     <?php include "./Rememberme.php"; ?>
     <?php
+    // Deletar noticia 
+    if ($_GET["fazer"] === "excluir") {
+        $id = $_GET["id"];
         $db = new SQLite3('../db/userData.db');
-        $sql = "SELECT DISTINCT * FROM Carrousel ORDER BY id DESC";
-        $contando = $db->query($sql);
-        $carrousel = $db->query($sql);
+        $sql = "DELETE FROM Edital WHERE idEdital =" . $id;
+        $db->exec($sql);
+        $db->close();
+        header('Location: MudaEdital.php');
+    };
+    if (isset($_POST["atualizar"])) {
+        if (!empty($_POST["edital"])) {
+            $db = new SQLite3('../db/userData.db');
+            $id =  $_POST["id"];
+            $edital = $_POST["edital"];
+            $sql = "UPDATE Edital SET edital='" . $edital . "' WHERE idEdital=" . $id;
+            $db->exec($sql);
+            header('Location: MudaEdital.php');
+            echo "Edital Modificado";
+        }else {
+            echo "Edital não pode estar vazio";
+        };
+    }
+        if ($_GET["fazer"] === "modificar") {
+            $id = $_GET["id"];
+            $db = new SQLite3('../db/userData.db');
+            $sql = "SELECT * FROM Edital WHERE idEdital =" . $id;
+            $alterar = $db->query($sql);
+            $dados = $alterar->fetchArray(SQLITE3_ASSOC);
+        };
     ?>
     <div>
-        <form action="./Master.php">
+        <form action="./MudaEdital.php">
             <button type="submit" class="btn btn-primary voltarbutton">Voltar</button>
         </form>
     </div>
     <div class="titulo-container">
-        <h2 class="titulo-conteudo">Modifica|Exclui Banner Carroussel</h2>
+        <h2 class="titulo-conteudo">Modificar Edital</h2>
     </div>
-    <div class="table-container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th style="width: 30%;">Link</th>
-                    <th style="width: 60%;">Imagem</th>
-                    <th style="width: 10%;" colspan="2"> Botões</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($dados = $carrousel->fetchArray(SQLITE3_ASSOC)) : ?>
-                    <tr>
-                        <td><?php echo $dados["link"]; ?></td>
-                        <td><img src="<?php echo $dados["localizado"];?>" class="BannerImg"></td>
-                        <td>
-                            <form method="GET" action="./ModificaCarrousel.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
-                                <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="GET" action="./ModificaCarrousel.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
-                                <button type="submit" name="fazer" value="excluir" class="botao-deleta rounded-circle bi bi-trash-fill"></button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endwhile;
-                $db->close(); ?>
-            </tbody>
-        </table>
+    <div class="artigo_texto">
+        <form action="" enctype="multipart/form-data" method="POST" class="form-container">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <ul>
+                <li>
+                    <label for="edital">Edital</label>
+                    <textarea onkeyup="ajusta_texto(this)" name="edital" value="<?php echo $dados["edital"]; ?>"><?php echo $dados["edital"]; ?></textarea>
+                    <span>Coloque o nome do Edital</span>
+                </li>
+                <li>
+                    <button type="submit" class="btn btn-primary" name="atualizar">Alterar</button>
+                </li>
+            </ul>
+        </form>
     </div>
+    <button type="submit" class="btn btn-primary Logout-button"><a href="Logout.php" style="text-decoration: none; color: white;">Logout</a></button>
 </body>
 
 </html>

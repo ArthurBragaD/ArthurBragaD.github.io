@@ -32,10 +32,9 @@
     <?php include "./Header.php"; ?>
     <?php include "./Rememberme.php"; ?>
     <?php
-        $db = new SQLite3('../db/userData.db');
-        $sql = "SELECT DISTINCT * FROM Carrousel ORDER BY id DESC";
-        $contando = $db->query($sql);
-        $carrousel = $db->query($sql);
+    $db = new SQLite3('../db/userData.db');
+    $sql = "SELECT DISTINCT * FROM EditalArquivos ORDER BY idArquivo DESC";
+    $carrousel = $db->query($sql);
     ?>
     <div>
         <form action="./Master.php">
@@ -57,17 +56,17 @@
             <tbody>
                 <?php while ($dados = $carrousel->fetchArray(SQLITE3_ASSOC)) : ?>
                     <tr>
-                        <td><?php echo $dados["link"]; ?></td>
-                        <td><img src="<?php echo $dados["localizado"];?>" class="BannerImg"></td>
+                        <td><?php echo $dados["nome"]; ?></td>
+                        <td><img src="<?php echo $dados["localizado"]; ?>" class="BannerImg"></td>
                         <td>
                             <form method="GET" action="./ModificaCarrousel.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
+                                <input type="hidden" name="id" value="<?php echo $dados["nome"]; ?>">
                                 <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
                             </form>
                         </td>
                         <td>
                             <form method="GET" action="./ModificaCarrousel.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["id"]; ?>">
+                                <input type="hidden" name="id" value="<?php echo $dados["data"]; ?>">
                                 <button type="submit" name="fazer" value="excluir" class="botao-deleta rounded-circle bi bi-trash-fill"></button>
                             </form>
                         </td>

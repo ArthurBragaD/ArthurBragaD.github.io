@@ -32,6 +32,7 @@
     <?php include "./Rememberme.php"; ?>
     <?php include "./CatalogarCarrousel.php"; ?>
     <?php include "./CatalogarNoticia.php"; ?>
+    <?php include "./CatalogarEdital.php"; ?>
     <?php include "./CatalogarSenha.php"; ?>
     <div class="titulo-container">
         <h2 class="titulo-conteudo">Master Page</h2>
@@ -122,6 +123,31 @@
                 </div>
                 <div class="painel-heading">
                     <h4 class="painel-title Menu-titulo">
+                        <a data-toggle="collapse" href="#AdicionarEdital" role="tab" class="collapsed">
+                            ADICIONAR EDITAL
+                        </a>
+                    </h4>
+                </div>
+                <div id="AdicionarEdital" class="collapse" role="tabpanel" style="height: 0px;">
+                    <div class="painel-body">
+                        <div class="artigo_texto">
+                            <form action="" method="post" class="form-container" enctype="multipart/form-data">
+                                <ul>
+                                    <li>
+                                        <label for="edital">Nome</label>
+                                        <textarea onkeyup="ajusta_texto(this)" name="edital" value="<?php echo $edital; ?>"><?php echo $edital; ?></textarea>
+                                        <span>Coloque o nome do edital</span>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn btn-primary" name="enviaredital">Enviar</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
                         <a data-toggle="collapse" href="#AdicionarConta" role="tab" class="collapsed">
                             ADICIONAR CONTA
                         </a>
@@ -176,6 +202,13 @@
                     <h4 class="painel-title Menu-titulo">
                         <a href="./MudaCarrousel.php" class="collapsed">
                             MODIFICAR | EXCLUIR BANNER CARROUSSEL
+                        </a>
+                    </h4>
+                </div>
+                <div class="painel-heading">
+                    <h4 class="painel-title Menu-titulo">
+                        <a href="./MudaEdital.php" class="collapsed">
+                            MODIFICAR | EXCLUIR EDITAL
                         </a>
                     </h4>
                 </div>

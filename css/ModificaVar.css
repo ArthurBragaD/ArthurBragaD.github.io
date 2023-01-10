@@ -48,6 +48,20 @@
     vertical-align: middle;
 }
 
+.botao-adiciona {
+    width: 75px;
+    height: 75px;
+    background-color: rgb(0, 178, 0);
+    border-color: rgb(0, 178, 0);
+    display: inline-block;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
 .botao-deleta {
     width: 75px;
     height: 75px;
