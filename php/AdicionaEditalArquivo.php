@@ -32,6 +32,7 @@
     <?php include "./Header.php"; ?>
     <?php include "./Rememberme.php"; ?>
     <?php
+    $id =  strval($_GET["id"]);
     if (isset($_POST["adicionar"])) {
         if (!empty($_POST["nome"]) && !empty($_POST["hora"]) && !empty($_POST["tipo"]) && $_FILES["arquivo"]["size"] != 0) {
             $db = new SQLite3('../db/userData.db');
@@ -50,7 +51,6 @@
             if (in_array($ext, $ext_allowed)) {
                 if (move_uploaded_file($file_temp, $localizado)) {
                     $sql = "INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ('$nome','$hora','$tipo','$arquivo','$localizado','$id');";
-                    echo $sql;
                     $db->exec($sql);
                     echo "Arquivo do edital catalogado";
                     $nome = "";
@@ -62,6 +62,7 @@
                 echo "Formato de arquivo de imagem inválido";
                 $nome = $_POST["nome"];
                 $hora = $_POST["hora"];
+                $id =  $_POST["id"];
             }
             // $sql = "UPDATE Edital SET edital='" . $edital . "' WHERE idEdital=" . $id;
             // $db->exec($sql);
@@ -71,6 +72,7 @@
             echo "Todos os campos precisam estar preenchidos";
             $nome = $_POST["nome"];
             $hora = $_POST["hora"];
+            $id =  $_POST["id"];
             $arquivo = $_FILE["arquivo"];
         };
     }

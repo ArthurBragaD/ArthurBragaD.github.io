@@ -6,7 +6,7 @@
             $sql = "INSERT INTO Edital (edital) VALUES ('$edital')";
             $db->exec($sql);
             echo "Edital criado";
-            $titulo = "";
+            $edital= "";
         } else {
         echo "Edital está vazio";
         }

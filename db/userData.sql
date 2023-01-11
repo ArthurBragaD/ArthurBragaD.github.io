@@ -20,7 +20,7 @@ CREATE TABLE Funcionarios (
     PRIMARY KEY (cpf)
 );
 CREATE TABLE Noticias(
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL UNIQUE,
     titulo TEXT NOT NULL,
     descricao TEXT NOT NULL,
     hora DATE NOT NULL, 
@@ -32,7 +32,7 @@ CREATE TABLE Noticias(
     PRIMARY KEY (id)
     );
     CREATE TABLE Carrousel(
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL UNIQUE,
     link TEXT,
     imagem BLOB,
     localizado TEXT,
@@ -45,15 +45,15 @@ CREATE TABLE Noticias(
     PRIMARY KEY(idEdital)
     );
      CREATE TABLE EditalArquivos(
-    idArquivo INTEGER NOT NULL,
+    idArquivo INTEGER NOT NULL UNIQUE,
     nome TEXT NOT NULL,
     hora TEXT NOT NULL,
     tipo TEXT NOT NULL,
     arquivo BLOB NOT NULL,
     localizado TEXT NOT NULL,
-    editalRelacionado INTEGER NOT NULL,
+    editalRelacionado NOT NULL,
     PRIMARY KEY (idArquivo),
-    FOREIGN KEY (editalRelacionado) REFERENCES Edital(idEdital)
+    FOREIGN KEY (editalRelacionado) REFERENCES Edital(idEdital) ON DELETE CASCADE
     );
 
 
