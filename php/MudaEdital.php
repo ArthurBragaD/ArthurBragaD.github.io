@@ -68,7 +68,7 @@
                         <td>
                             <form method="GET" action="./MudaEditalArquivo.php">
                                 <input type="hidden" name="id" value="<?php echo $dados["idEdital"]; ?>">
-                                <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
+                                <button type="submit" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
                             </form>
                         </td>
                         <td>

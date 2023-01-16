@@ -1,16 +1,15 @@
 PRAGMA foreign_keys = OFF;
-SELECT * FROM Funcionarios;
+-- SELECT * FROM Funcionarios;
 DROP TABLE IF EXISTS Funcionarios;
-SELECT * FROM Noticias;
+-- SELECT * FROM Noticias;
 DROP TABLE IF EXISTS Noticias;
-SELECT * FROM Carrousel;
+-- SELECT * FROM Carrousel;
 DROP TABLE IF EXISTS Carrousel;
-SELECT * FROM Edital;
+-- SELECT * FROM Edital;
 DROP TABLE IF EXISTS Edital;
-SELECT * FROM EditalArquivos;
+-- SELECT * FROM EditalArquivos;
 DROP TABLE IF EXISTS EditalArquivos;
 PRAGMA foreign_keys = ON;
-
 CREATE TABLE Funcionarios (
     user TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL UNIQUE,
@@ -45,7 +44,7 @@ CREATE TABLE Noticias(
     PRIMARY KEY(idEdital)
     );
      CREATE TABLE EditalArquivos(
-    idArquivo INTEGER NOT NULL UNIQUE,
+    idArquivo INTEGER NOT NULL,
     nome TEXT NOT NULL,
     hora TEXT NOT NULL,
     tipo TEXT NOT NULL,

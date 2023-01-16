@@ -35,7 +35,6 @@
     $db = new SQLite3('../db/userData.db');
     $id = $_GET['id'];
     $sql = "SELECT DISTINCT * FROM EditalArquivos WHERE editalRelacionado = '" . $id . "' ORDER BY idArquivo DESC";
-    echo $sql;
     $arquivos = $db->query($sql);
     ?>
     <div>
@@ -62,7 +61,7 @@
                     <tr>
                         <td><?php echo $dados["nome"]; ?></td>
                         <td><?php
-                            $sql = "SELECT edital FROM Edital WHERE idEdital =" . $dados["idArquivo"];
+                            $sql = "SELECT edital FROM Edital WHERE idEdital =" . $id;
                             $edital = $db->query($sql);
                             $edital = $edital->fetchArray(SQLITE3_ASSOC);
                             echo $edital["edital"];
@@ -71,13 +70,15 @@
                         <td><?php echo $dados["hora"]; ?></td>
                         <td>
                             <form method="GET" action="./ModificaArquivosEdital.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["nome"]; ?>">
+                                <input type="hidden" name="id" value="<?php echo $dados["idArquivo"]; ?>">
+                                <input type="hidden" name="idEdital" value="<?php echo $id; ?>">
                                 <button type="submit" name="fazer" value="modificar" class="botao-modifica rounded-circle bi bi-pencil-fill"></button>
                             </form>
                         </td>
                         <td>
                             <form method="GET" action="./ModificaArquivosEdital.php">
-                                <input type="hidden" name="id" value="<?php echo $dados["data"]; ?>">
+                                <input type="hidden" name="id" value="<?php echo $dados["idArquivo"]; ?>">
+                                <input type="hidden" name="idEdital" value="<?php echo $id; ?>">
                                 <button type="submit" name="fazer" value="excluir" class="botao-deleta rounded-circle bi bi-trash-fill"></button>
                             </form>
                         </td>

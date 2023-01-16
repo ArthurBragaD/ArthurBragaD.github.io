@@ -36,6 +36,7 @@
     if ($_GET["fazer"] === "excluir") {
         $id = $_GET["id"];
         $db = new SQLite3('../db/userData.db');
+        $db->exec('PRAGMA foreign_keys = ON');
         $sql = "DELETE FROM Edital WHERE idEdital =" . $id;
         $db->exec($sql);
         $db->close();

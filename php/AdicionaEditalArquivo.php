@@ -75,7 +75,7 @@
             $id =  $_POST["id"];
             $arquivo = $_FILE["arquivo"];
         };
-    }
+    };
     ?>
     <div>
         <form action="./MudaEdital.php">
