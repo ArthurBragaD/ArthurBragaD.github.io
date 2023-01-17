@@ -23,51 +23,58 @@
 
 <body>
     <?php include "./Header.php"; ?>
+    <?php
+    $db = new SQLite3('../db/userData.db');
+    $sql = "SELECT * FROM Edital ORDER BY idEdital DESC";
+    $editais = $db->query($sql);
+    ?>
     <div class="conteudo">
         <div class="titulo-container">
             <h2 class="titulo-conteudo">Editais</h2>
         </div>
         <div class="editais-container">
-            <section class="editais-table" role="tablist">
-                <div class="editais-table-container">
-                    <div class="painel-heading">
+            <?php
+            while ($dados = $editais->fetchArray(SQLITE3_ASSOC)) :
+                $sql = "SELECT * FROM EditalArquivos WHERE editalRelacionado = '" . $dados["idEdital"] . "' ORDER BY idArquivo DESC";
+                $editaisArquivos = $db->query($sql);
+            ?>
+                <div class="editais-conteudo">
+                    <div class="edital-table-container">
                         <h4 class="painel-title">
-                            <a data-toggle="collapse" href="#INFORMAÇÕES DE CONTATO ESTRUTURA" role="tab" class="collapsed">
-                                Lei Aldir Blanc
+                            <a data-toggle="collapse" href="#<?php echo $dados["edital"]; ?>" role="tab" class="collapsed">
+                                <?php echo $dados["edital"]; ?>
                             </a>
                         </h4>
-                    </div>
-                    <div id="INFORMAÇÕES DE CONTATO ESTRUTURA" class="collapse" role="tabpanel" style="height: 0px;">
-                        <div class="painel-body">
-                            <div class="artigo_texto">
-                                <div>
-                                    <p style="word-spacing:0px;"><strong><span style="font-family:Cambria, serif;color:#000000;">Informações e dúvidas no e-mail:
-                                            </span></strong>aldirblancrg@gmail.com</p>
-                                    <p style="word-spacing:0px;"><span style="font-family:Cambria, serif;color:#000000;">
-                                            <p style="word-spacing:0px;"><span style="font-family:Cambria, serif;color:#000000;"><strong>Acompanhe aqui as atualizações e acesse os editais:
-                                                </span></strong>
-                                            </p>
-                                            <div class="painel-heading">
-                                                <h4 class="painel-title">
-                                                    <a data-toggle="collapse" href="#CHAMADA PÚBLICA Nº01/2020" role="tab" class="collapsed">
-                                                        CHAMADA PÚBLICA Nº01/2020
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="CHAMADA PÚBLICA Nº01/2020" class="collapse" role="tabpanel" style="height: 0px;">
-                                                <div class="painel-body">
-                                                    <div class="artigo_texto">
-                                                        <p>TESTE</p>
-                                                        <p>TESTE</p>
-                                                        <p>TESTE</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                        <div id="<?php echo $dados["edital"]; ?>" class="collapse" role="tabpanel" style="height: 0px;">
+                            <div class="painel-body">
+                                <div class="artigo_texto">
+
+                                    <p style="word-spacing:0px; text-decoration:underline;"><strong>Arquivos para download</strong></p>
+                                    <?php while ($dadosArquivos = $editaisArquivos->fetchArray(SQLITE3_ASSOC)) : ?>
+                                        <?php if ($dadosArquivos["tipo"] === "baixar") : ?>
+                                            <li>
+                                                <a href="<?php echo $dadosArquivos["localizado"]; ?>" download><?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
+                                    <p style="word-spacing:0px; text-decoration:underline;"><strong>Andamento</strong></p>
+                                    <?php
+                                    while ($dadosArquivos = $editaisArquivos->fetchArray(SQLITE3_ASSOC)) :
+                                    ?>
+                                        <?php
+                                        if ($dadosArquivos["tipo"] === "andamento") :
+                                        ?>
+                                            </li>
+                                            <a href="<?php echo $dadosArquivos["localizado"]; ?>"><?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-            </section>
+                </div>
+            <?php endwhile; ?>
         </div>
     </div>
     <?php include "./Footer.php"; ?>

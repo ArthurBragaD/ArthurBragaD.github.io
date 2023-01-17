@@ -15,29 +15,38 @@
     margin-right: 25%;
 }
 
-.editais-table {
-    margin-bottom: 1.5rem;
-    background-color: #fff;
-    border: 1px solid black;
-    border-radius: 0;
-    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
-    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+.editais-conteudo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    display: block;
+    border: black 1px solid;
+    border-radius: 10px;
+    padding-right: 10px;
+    font-weight: normal;
+    background-repeat: no-repeat;
+    background-position: center top;
+    font-size: 1em;
 }
 
-.painel-heading {
+
+/* .painel-heading {
     text-decoration: none;
     display: block;
     padding: 10px 15px;
     background-color: #f5f5f5;
     border-color: #ddd;
-}
+} */
 
 .painel-body {
     border-top: 1px solid #ddd;
+    width: 100%;
 }
 
 .painel-title {
     font-size: larger;
+    width: 95%;
+    margin-right: 5%;
 }
 
 a {

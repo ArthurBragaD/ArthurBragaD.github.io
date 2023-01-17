@@ -55,6 +55,14 @@ CREATE TABLE Noticias(
     FOREIGN KEY (editalRelacionado) REFERENCES Edital(idEdital) ON DELETE CASCADE
     );
 
+INSERT INTO Edital (edital) VALUES ("Aldir Blanc Chamada Pública Nº01/2020");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Espaços Culturais","00-00-0000","andamento",'EditalEspaçosCulturais.pdf','../upload/EditalEspaçosCulturais.pdf',"1");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Retificação Nº1","00-00-0000","baixar",'RETIFICAÇÃONº1.pdf','../upload/RETIFICAÇÃONº1.pdf',"1");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista De Homologação Parcial","00-00-0000","baixar",'ListaDeHomologaçãoParcial.pdf','../upload/ListaDeHomologaçãoParcial.pdf',"1");
+-- INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Retificação Nº1","00-00-0000","baixar",'RETIFICAÇÃONº1.pdf','../upload/RETIFICAÇÃONº1.pdf',"1");
+-- INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Retificação Nº1","00-00-0000","baixar",'RETIFICAÇÃONº1.pdf','../upload/RETIFICAÇÃONº1.pdf',"1");
+
+
 
 INSERT INTO Funcionarios VALUES ("arthur","arthurbragadutra@gmail.com","arthur","arthur braga dutra","05204074074");
 INSERT INTO Carrousel (link,imagem,localizado) VALUES ("",'Banner2000x500.png','../upload/Banner2000x500.png');
