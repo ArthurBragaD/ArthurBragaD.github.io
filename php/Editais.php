@@ -33,18 +33,21 @@
             <h2 class="titulo-conteudo">Editais</h2>
         </div>
         <div class="editais-container">
-            <?php
-            while ($dados = $editais->fetchArray(SQLITE3_ASSOC)) :
-                $sql = "SELECT * FROM EditalArquivos WHERE editalRelacionado = '" . $dados["idEdital"] . "' ORDER BY idArquivo DESC";
-                $editaisArquivos = $db->query($sql);
-            ?>
-                <div class="editais-conteudo">
+            <div class="editais-conteudo">
+                <?php
+                while ($dados = $editais->fetchArray(SQLITE3_ASSOC)) :
+                    $sql = "SELECT * FROM EditalArquivos WHERE editalRelacionado = '" . $dados["idEdital"] . "' ORDER BY idArquivo DESC";
+                    $editaisArquivos = $db->query($sql);
+                ?>
                     <div class="edital-table-container">
                         <h4 class="painel-title">
                             <a data-toggle="collapse" href="#<?php echo $dados["edital"]; ?>" role="tab" class="collapsed">
                                 <?php echo $dados["edital"]; ?>
                             </a>
                         </h4>
+                        <div id="<?php echo $dados["edital"]; ?>" class="collapse show" role="tabpanel">
+                            <p style="color: red;   text-decoration: underline; text-decoration-color: red; width: 97.5%; margin-left:2.5%; height:fit-content"><?php echo $dados["descricao"]; ?></p>
+                        </div>
                         <div id="<?php echo $dados["edital"]; ?>" class="collapse" role="tabpanel" style="height: 0px;">
                             <div class="painel-body">
                                 <div class="artigo_texto">
@@ -53,7 +56,7 @@
                                     <?php while ($dadosArquivos = $editaisArquivos->fetchArray(SQLITE3_ASSOC)) : ?>
                                         <?php if ($dadosArquivos["tipo"] === "baixar") : ?>
                                             <li>
-                                                <a href="<?php echo $dadosArquivos["localizado"]; ?>" download><?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
+                                                <a href="<?php echo $dadosArquivos["localizado"]; ?>" download><span class="bi-download"> </span> <?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
@@ -64,8 +67,8 @@
                                         <?php
                                         if ($dadosArquivos["tipo"] === "andamento") :
                                         ?>
-                                            </li>
-                                            <a href="<?php echo $dadosArquivos["localizado"]; ?>"><?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
+                                            <li style="text-align: justify;">
+                                                <a href="<?php echo $dadosArquivos["localizado"]; ?>"><span class="bi-clock-history"> </span> <?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>
@@ -73,8 +76,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php endwhile; ?>
+                <?php endwhile; ?>
+            </div>
         </div>
     </div>
     <?php include "./Footer.php"; ?>

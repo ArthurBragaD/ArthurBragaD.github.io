@@ -47,21 +47,22 @@
             $db = new SQLite3('../db/userData.db');
             $id =  $_POST["id"];
             $edital = $_POST["edital"];
-            $sql = "UPDATE Edital SET edital='" . $edital . "' WHERE idEdital=" . $id;
+            $descricao = $_POST["descricao"];
+            $sql = "UPDATE Edital SET edital='" . $edital . "', descricao='" . $descricao . "' WHERE idEdital=" . $id;
             $db->exec($sql);
             header('Location: MudaEdital.php');
             echo "Edital Modificado";
-        }else {
+        } else {
             echo "Edital não pode estar vazio";
         };
     }
-        if ($_GET["fazer"] === "modificar") {
-            $id = $_GET["id"];
-            $db = new SQLite3('../db/userData.db');
-            $sql = "SELECT * FROM Edital WHERE idEdital =" . $id;
-            $alterar = $db->query($sql);
-            $dados = $alterar->fetchArray(SQLITE3_ASSOC);
-        };
+    if ($_GET["fazer"] === "modificar") {
+        $id = $_GET["id"];
+        $db = new SQLite3('../db/userData.db');
+        $sql = "SELECT * FROM Edital WHERE idEdital =" . $id;
+        $alterar = $db->query($sql);
+        $dados = $alterar->fetchArray(SQLITE3_ASSOC);
+    };
     ?>
     <div>
         <form action="./MudaEdital.php">
@@ -79,6 +80,11 @@
                     <label for="edital">Edital</label>
                     <textarea onkeyup="ajusta_texto(this)" name="edital" value="<?php echo $dados["edital"]; ?>"><?php echo $dados["edital"]; ?></textarea>
                     <span>Coloque o nome do Edital</span>
+                </li>
+                <li>
+                    <label for="descricao">Última Atualização</label>
+                    <textarea onkeyup="ajusta_texto(this)" name="descricao" value="<?php echo $dados["descricao"]; ?>"><?php echo $dados["descricao"]; ?></textarea>
+                    <span>Descreva qual foi a última atualização do edital</span>
                 </li>
                 <li>
                     <button type="submit" class="btn btn-primary" name="atualizar">Alterar</button>
