@@ -9,7 +9,7 @@
 <div id="hotbar-menu-wrap " class="hotbar-container">
     <ul class="hotbar-menu " style="width: 15%;">
         <li class="hotbar-logo ">
-            <a href="/php/Index.php"><i class="bi-house-door-fill ">| Início</i></a>
+            <a href="/php/Index.php"><i class="bi-house-door-fill ">| INÍCIO</i></a>
         </li>
     </ul>
     <ul class="hotbar-menu " style="width: 50%; margin-left: 10%;margin-right: 15%">
