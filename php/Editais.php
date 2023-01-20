@@ -56,7 +56,7 @@
                                     <?php while ($dadosArquivos = $editaisArquivos->fetchArray(SQLITE3_ASSOC)) : ?>
                                         <?php if ($dadosArquivos["tipo"] === "baixar") : ?>
                                             <li>
-                                                <a href="<?php echo $dadosArquivos["localizado"]; ?>" download><span class="bi-download"> </span> <?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
+                                                <a href="<?php echo $dadosArquivos["localizado"]; ?>" download><span class="bi-download"> </span><?php echo $dadosArquivos["hora"]; ?> <?php echo $dadosArquivos["nome"]; ?></a>
                                             </li>
                                         <?php endif; ?>
                                     <?php endwhile; ?>

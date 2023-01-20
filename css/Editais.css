@@ -17,13 +17,13 @@
 }
 
 .editais-conteudo {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 50px;
+    padding-top: 2%;
+    padding-bottom: 2.5%;
+    padding-left: 10%;
+    padding-right: 10%;
     display: block;
     border: black 1px solid;
     border-radius: 10px;
-    padding-right: 10px;
     font-weight: normal;
     background-repeat: no-repeat;
     background-position: center top;
@@ -40,30 +40,32 @@
 } */
 
 .painel-body {
-    border-top: 1px solid #ddd;
+    /* border-top: 1px solid #ddd; */
     width: 100%;
 }
 
 .painel-title {
     font-size: larger;
-    width: 95%;
-    margin-right: 5%;
+    width: 100%;
+}
+
+a:hover {
+    color: black;
 }
 
 a {
     text-decoration: none;
-    color: #333333;
+    color: black;
 }
 
 h4>a.collapsed:before {
-    content: "+";
+    content: url(../upload/editalFechado.png);
     font-size: larger;
 }
 
 h4>a:before {
     font-size: larger;
-    content: "-";
-    float: right;
+    content: url(../upload/editalAberto.png);
 }
 
 .artigo_texto {
@@ -71,4 +73,5 @@ h4>a:before {
     margin-left: 5%;
     margin-right: 5%;
     text-align: justify;
+    margin-bottom: 2.5%;
 }

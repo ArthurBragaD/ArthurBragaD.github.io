@@ -93,10 +93,11 @@
         <div class="titulo-container">
             <h2 class="titulo-conteudo">Pagina Inicial</h2>
         </div>
-        <div class="resultado-container">
-            <div class="resultado-pesquisa-container">
-                <div class="resultado-pesquisa-data-container">
-                    <h2 style="text-align: center;">Notícias recentes</h3>
+        <div class="teste">
+            <div class="resultado-container">
+                <div class="resultado-pesquisa-container">
+                    <div class="resultado-pesquisa-data-container">
+                        <h2 style="text-align: center;">Notícias recentes</h2>
                         <?php while ($dados = $noticia->fetchArray(SQLITE3_ASSOC)) : ?>
                             <article class="conteudo-lista__item clearfix">
                                 <header>
@@ -119,10 +120,21 @@
                             </article>
                         <?php endwhile;
                         $db->close(); ?>
+                        <div class="ver-mais-button"><a href="./VermaisNoticias.php"><button class="btn btn-primary">Ver Mais Noticias</button></a></div>
+                    </div>
                 </div>
             </div>
+            <div class="mini-menu">
+                <ul class="form">
+                    <li><a class="profile" href="#"><i class="icon-user"></i>Sympla</a></li>
+                    <li><a class="messages" href="#"><i class="icon-envelope-alt"></i>TESTE</a></li>
+                    <li><a class="settings" href="#"><i class="icon-cog"></i>TESTE</a></li>
+                    <li><a class="settings" href="#"><i class="icon-cog"></i>TESTE</a></li>
+
+                    <li><a class="logout" href="#"><i class="icon-signout"></i>Contate-nos</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="ver-mais-button"><a href="./VermaisNoticias.php"><button class="btn btn-primary">Ver Mais Noticias</button></a></div>
     </div>
     <?php include "./Footer.php"; ?>
 
