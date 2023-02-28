@@ -5,10 +5,7 @@ Progresso Atual:
 
 -MUDAR FONT
 -MUDAR SELECIONAVEL EDITAl
-
-
--Inicio
-| Compra no sympla - Pesquisar 
+-PROCURAR ERROS DE PORTUGUES
 
 
 - Editais

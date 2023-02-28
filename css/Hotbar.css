@@ -36,7 +36,16 @@ body {
     right: 5%;
     bottom: 5%;
     overflow: hidden;
-    border: 1px solid #1A1E37;
+    border: 3px solid #1A1E37;
+    border-radius: 30px;
+    padding: 0;
+}
+
+#pesquisabtn {
+    border: 0;
+    background-color: #1A1E37;
+    color: white;
+    width: 15%;
 }
 
 .pesquisar-style {

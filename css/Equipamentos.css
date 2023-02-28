@@ -53,6 +53,8 @@ h4>a:before {
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2%;
+    max-height: 400px;
+    max-width: auto;
 }
 
 .artigo_texto {

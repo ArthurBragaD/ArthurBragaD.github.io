@@ -126,12 +126,14 @@
             </div>
             <div class="mini-menu">
                 <ul class="form">
-                    <li><a class="profile" href="https://www.sympla.com.br"><img src="/upload/IconMascara.png" style="width: 25px;"><i class="icon-user"></i> Teatro - Compre seu ingresso</a></li>
-                    <li><a class="messages" href="#"><i class="icon-envelope-alt"></i>TESTE</a></li>
-                    <li><a class="settings" href="#"><i class="icon-cog"></i>TESTE</a></li>
-                    <li><a class="settings" href="#"><i class="icon-cog"></i>TESTE</a></li>
+                    <li><a class="azul" href="https://www.sympla.com.br"><img src="/upload/IconMascara.png" style="width: 25px; height: 100%">
+                            <p class="tab-mini-menu">Teatro - Compre seu ingresso no sympla</p>
+                        </a></li>
+                    <li><a class="azul" href="#">TESTE</a></li>
+                    <li><a class="azul" href="#">TESTE</a></li>
+                    <li><a class="verde" href="#">TESTE</a></li>
 
-                    <li><a class="logout" href="/php/Contate.php"><i class="icon-signout"></i>Contate-nos</a></li>
+                    <li><a class="verde" href="/php/Contate.php">Contate-nos</a></li>
                 </ul>
             </div>
         </div>

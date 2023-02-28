@@ -1,7 +1,7 @@
 <div class="header-container">
     <form class="pesquisar-container" action="Pesquisa.php" method="GET">
         <input class="pesquisar-style" type="text" placeholder="Pesquisar..." name="pesquisa">
-        <button class="bi bi-search" type="submit"></button>
+        <button class="bi bi-search" id="pesquisabtn" type="submit"></button>
     </form>
     
 </div>

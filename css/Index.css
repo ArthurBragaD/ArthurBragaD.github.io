@@ -143,8 +143,9 @@ ul.form {
 .form li a {
     /* width: 225px; */
     padding-left: 20px;
-    height: 50px;
-    line-height: 50px;
+    height: fit-content;
+    min-height: 50px;
+    /* line-height: 50px; */
     display: block;
     overflow: hidden;
     position: relative;
@@ -162,21 +163,26 @@ ul.form {
     background: #efefef;
 }
 
-.form li a.profile {
+.form li a.azul {
     border-left: 5px solid #343b6d;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.form li a.messages {
+.form li a.verde {
     border-left: 5px solid #088931;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.form li a.settings {
-    border-left: 5px solid #343b6d;
-}
 
-.form li a.logout {
-    border-left: 5px solid #088931;
-}
+/* .form li a p {
+    inline-size: 19%;
+    width: 100%;
+    overflow-wrap: break-word;
+} */
 
 .form li:first-child a:hover,
 .form li:first-child a {
@@ -196,13 +202,22 @@ ul.form {
     color: #ea4f35;
 }
 
-.form i {
+.form img {
     margin-right: 15px;
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
 }
+
+
+/* .form i {
+    margin-right: 15px;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+} */
 
 .form em {
     font-size: 10px;
@@ -251,3 +266,9 @@ p a {
     color: #fff;
     text-decoration: none;
 } */
+
+.tab-mini-menu {
+    overflow-wrap: break-word;
+    width: 100%;
+    margin: 0;
+}
