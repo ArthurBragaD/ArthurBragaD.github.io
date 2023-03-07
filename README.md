@@ -6,7 +6,8 @@ Progresso Atual:
 -MUDAR FONT
 -MUDAR SELECIONAVEL EDITAl
 -PROCURAR ERROS DE PORTUGUES
-
+-Link do mapa Cultural
+- adicionar + editais
 
 - Editais
 | Falar com o victor para arrumarmos juntos

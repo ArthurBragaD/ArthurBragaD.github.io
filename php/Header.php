@@ -12,10 +12,10 @@
             <a href="/php/Index.php"><i class="bi-house-door-fill ">| INÍCIO</i></a>
         </li>
     </ul>
-    <ul class="hotbar-menu " style="width: 50%; margin-left: 10%;margin-right: 15%">
-        <!-- <li class="hotbar-item ">
-            <a href=" ">Mapa Cultural</a>
-        </li> -->
+    <ul class="hotbar-menu " style="width: 60%; margin-left: 2.5%;margin-right: 7.5%">
+        <li class="hotbar-item ">
+            <a href=" ">MAPA CULTURAL</a>
+        </li>
         <li class="hotbar-item ">
             <a href="/php/Equipamentos.php ">EQUIPAMENTOS</a>
         </li>

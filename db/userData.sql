@@ -92,7 +92,44 @@ INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado)
 INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("ANEXO II - AUTODECLARAÇÃO COTISTA","00-00-0000","baixar",'C3ANEXO II - AUTODECLARAÇÃO COTISTA.docx','../upload/C3ANEXO II - AUTODECLARAÇÃO COTISTA.docx',"3");
 INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("ANEXO III - PROPOSTA DE PROJETO","00-00-0000","baixar",'C3ANEXO III - PROPOSTA DE PROJETO.docx','../upload/C3ANEXO III - PROPOSTA DE PROJETO.docx',"3");
 
+INSERT INTO Edital (edital,descricao) VALUES ("Chamada Pública nº 05/2019 - Programa Municipal de Fomento e Incentivo à Arte e à Cultura (PROCULTURA)","Edital Concluído");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista de Projetos Selecionados","18-11-2019","andamento",'Lista de Projetos Selecionados.pdf','../upload/Lista de Projetos Selecionados.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Cronograma de Defesa dos Projetos","07-11-2019","andamento",'Cronograma de Defesa dos Projetos.pdf','../upload/Cronograma de Defesa dos Projetos.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Retificação nº02","01-11-2019","andamento",'PCRetificação nº02.pdf','../upload/PCRetificação nº02.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista de Resultado dos Recursos","17-10-2019","andamento",'PCLista de Resultado dos Recursos.pdf','../upload/PCLista de Resultado dos Recursos.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista de Habilitados/Segmento","16-10-2019","andamento",'PCLista de HabilitadosSegmento.pdf','../upload/PCLista de HabilitadosSegmento.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista de Propostas Habilitadas e Inabilitadas","26-09-2019","andamento",'PCLista de Propostas Habilitadas e Inabilitadas.pdf','../upload/PCLista de Propostas Habilitadas e Inabilitadas.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Termo Aditivo ao Edital nº05/2019","13-09-2019","andamento",'PCTermo Aditivo ao Edital nº052019.pdf','../upload/PCTermo Aditivo ao Edital nº052019.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Retificação nº01","19-08-2019","andamento",'PCRetificação nº01.pdf','../upload/PCRetificação nº01.pdf',"4");
 
+
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Manual de Aplicação de Marca","08-08-2019","baixar",'PCManual de Aplicação de Marca.doc','../upload/PCManual de Aplicação de Marca.doc',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Modelo de Carta de Anuência","08-08-2019","baixar",'PCModelo de Carta de Anuência.pdf','../upload/PCModelo de Carta de Anuência.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo VII Declaração de compromisso e responsabilidade","08-08-2019","baixar",'PCAnexo VII Declaração de compromisso e responsabilidade.pdf','../upload/PCAnexo VII Declaração de compromisso e responsabilidade.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo VI Modelo de Declaração  Negativa","08-08-2019","baixar",'PCAnexo VI Modelo de Declaração  Negativa.pdf','../upload/PCAnexo VI Modelo de Declaração  Negativa.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo V Modelo de Declaração de Idoneidade","08-08-2019","baixar",'PCAnexo V Modelo de Declaração de Idoneidade.pdf','../upload/PCAnexo V Modelo de Declaração de Idoneidade.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo IV Instrução Normativa sobre veiculação das marcas","08-08-2019","baixar",'PCAnexo IV Instrução Normativa sobre veiculação das marcas.pdf','../upload/PCAnexo IV Instrução Normativa sobre veiculação das marcas.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo III Instrução Normativa sobre Prestação de Contas Simplificada","08-08-2019","baixar",'PCAnexo III Instrução Normativa sobre Prestação de Contas Simplificada.pdf','../upload/PCAnexo III Instrução Normativa sobre Prestação de Contas Simplificada.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo II Requerimento da SECULT para ingresso no Protocolo","08-08-2019","baixar",'PCAnexo II Requerimento da SECULT para ingresso no Protocolo.pdf','../upload/PCAnexo II Requerimento da SECULT para ingresso no Protocolo.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo I Modelo de formulário de apresentação dos projetos","08-08-2019","baixar",'PCAnexo I Modelo de formulário de apresentação dos projetos.pdf','../upload/PCAnexo I Modelo de formulário de apresentação dos projetos.pdf',"4");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Edital nº05/2019 Programa Municipal de Fomento e Incentivo à Arte e à Cultura","08-08-2019","baixar",'PCEdital nº052019 Programa Municipal de Fomento e Incentivo à Arte e à Cultura.pdf','../upload/PCEdital nº052019 Programa Municipal de Fomento e Incentivo à Arte e à Cultura.pdf',"4");
+
+INSERT INTO Edital (edital,descricao) VALUES ("Chamada Pública nº 04/2021 - Auxílio Emergencial da Cultura","Edital Concluído");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista Final de Homologações","11-02-2022","andamento",'CPECLista Final de Homologações.pdf','../upload/CPECLista Final de Homologações.pdf',"5");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista Parcial de Homologação","09-02-2022","andamento",'CPECLista Parcial de Homologação.pdf','../upload/CPECLista Parcial de Homologação.pdf',"5");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista de Homologação","18-02-2022","andamento",'CPECLista de Homologação.pdf','../upload/CPECLista de Homologação.pdf',"5");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Retificação nº02","04-01-2022","andamento",'CPECRetificação nº02.pdf','../upload/CPECRetificação nº02.pdf',"5");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Retificação nº01","24-01-2022","andamento",'CPECRetificação nº01.pdf','../upload/CPECRetificação nº01.pdf',"5");
+
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo II Declaração de Ausência de Renda","02-09-2021","baixar",'CPECAnexo II Declaração de Ausência de Renda.pdf','../upload/CPECAnexo II Declaração de Ausência de Renda.pdf',"5");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo I Declaração  de Contemplação e Veracidade de Informação","02-09-2021","baixar",'CPECAnexo I Declaração  de Contemplação e Veracidade de Informação.pdf','../upload/CPECAnexo I Declaração  de Contemplação e Veracidade de Informação.pdf',"5");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Chamada Pública nº03/2021","02-09-2021","baixar",'CPECChamada Pública nº032021.pdf','../upload/CPECChamada Pública nº032021.pdf',"5");
+
+INSERT INTO Edital (edital,descricao) VALUES ("Chamada Pública nº 03/2021 - Auxílio Emergencial do Esporte","Edital Concluído");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Lista de Homologações","15-09-2021","andamento",'CPEELista de Homologações.pdf','../upload/CPEELista de Homologações.pdf',"6");
+
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Anexo I Declaração ","02-09-2021","baixar",'CPEEAnexo I Declaração.pdf','../upload/CPEEAnexo I Declaração.pdf',"6");
+INSERT INTO EditalArquivos (nome,hora,tipo,arquivo,localizado,editalRelacionado) VALUES ("Chamada Pública nº03/2021","02-09-2021","baixar",'CPEEChamada Pública nº032021.pdf','../upload/CPEEChamada Pública nº032021.pdf',"6");
 
 
 INSERT INTO Funcionarios VALUES ("arthur","arthurbragadutra@gmail.com","arthur","arthur braga dutra","05204074074");
